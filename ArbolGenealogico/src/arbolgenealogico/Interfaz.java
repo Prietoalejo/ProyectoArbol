@@ -22,6 +22,8 @@ public class Interfaz extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         
+        this.pintarImagen(this.jLabel4, "src/Img/Home.gif");
+        
     }
 
     /**
@@ -36,11 +38,11 @@ public class Interfaz extends javax.swing.JFrame {
 
         Panel1 = new javax.swing.JPanel();
         Barra1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         Barra2 = new javax.swing.JPanel();
         Btn_Home = new javax.swing.JButton();
         Btn_Service = new javax.swing.JButton();
         Btn_About = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         Pagina3 = new javax.swing.JPanel();
         Pg3 = new javax.swing.JLabel();
@@ -48,8 +50,8 @@ public class Interfaz extends javax.swing.JFrame {
         Pg2 = new javax.swing.JLabel();
         Pagina1 = new javax.swing.JPanel();
         Pg1 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        Text_1 = new javax.swing.JLabel();
+        Text_2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,14 +65,11 @@ public class Interfaz extends javax.swing.JFrame {
         Barra1.setLayout(Barra1Layout);
         Barra1Layout.setHorizontalGroup(
             Barra1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Barra1Layout.createSequentialGroup()
-                .addGap(623, 623, 623)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 831, Short.MAX_VALUE)
         );
         Barra1Layout.setVerticalGroup(
             Barra1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+            .addGap(0, 75, Short.MAX_VALUE)
         );
 
         Barra2.setBackground(new java.awt.Color(27, 23, 36));
@@ -103,29 +102,35 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout Barra2Layout = new javax.swing.GroupLayout(Barra2);
         Barra2.setLayout(Barra2Layout);
         Barra2Layout.setHorizontalGroup(
             Barra2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Barra2Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
+                .addGap(19, 19, 19)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Btn_Home, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(107, 107, 107)
                 .addComponent(Btn_About, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Btn_Service, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(88, 88, 88))
         );
         Barra2Layout.setVerticalGroup(
             Barra2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Barra2Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addGroup(Barra2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Btn_About, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(Btn_Home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Barra2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 13, Short.MAX_VALUE)
                 .addComponent(Btn_Service, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(Barra2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(Barra2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Btn_About, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Btn_Home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
@@ -187,15 +192,15 @@ public class Interfaz extends javax.swing.JFrame {
         Pg1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Pg1.setText("1");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(22, 160, 133));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Árbol Genealógico");
+        Text_1.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
+        Text_1.setForeground(new java.awt.Color(22, 160, 133));
+        Text_1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Text_1.setText("Árbol Genealógico");
 
-        jLabel3.setFont(new java.awt.Font("Script MT Bold", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Registro de Linajes");
+        Text_2.setFont(new java.awt.Font("Script MT Bold", 1, 18)); // NOI18N
+        Text_2.setForeground(new java.awt.Color(255, 255, 255));
+        Text_2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Text_2.setText("Registro de Linajes");
 
         javax.swing.GroupLayout Pagina1Layout = new javax.swing.GroupLayout(Pagina1);
         Pagina1.setLayout(Pagina1Layout);
@@ -210,11 +215,11 @@ public class Interfaz extends javax.swing.JFrame {
                     .addGroup(Pagina1Layout.createSequentialGroup()
                         .addGroup(Pagina1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Pagina1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel1)
+                                .addComponent(Text_1)
                                 .addGroup(Pagina1Layout.createSequentialGroup()
                                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(20, 20, 20)))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Text_2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 498, Short.MAX_VALUE))))
         );
         Pagina1Layout.setVerticalGroup(
@@ -223,11 +228,11 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(Pg1)
                 .addGap(2, 2, 2)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Text_1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Text_2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(219, Short.MAX_VALUE))
         );
 
@@ -342,9 +347,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel Pg1;
     private javax.swing.JLabel Pg2;
     private javax.swing.JLabel Pg3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel Text_1;
+    private javax.swing.JLabel Text_2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
