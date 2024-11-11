@@ -29,6 +29,7 @@ public class Interfaz extends javax.swing.JFrame {
         
         this.pintarImagen(this.Img_1, "src/Img/BannerMedieval.png");
         this.pintarImagen(this.Img_2, "src/Img/herencia.gif");
+        this.pintarImagen(this.Img_3, "src/Img/Unimet.png");
     }
 
     /**
@@ -50,6 +51,7 @@ public class Interfaz extends javax.swing.JFrame {
         TextoTitulo = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
+        Img_3 = new javax.swing.JLabel();
         PnlFondo = new javax.swing.JPanel();
         Panel_1 = new javax.swing.JPanel();
         Img_1 = new javax.swing.JLabel();
@@ -194,6 +196,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addComponent(Img_3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PnlMenuLayout.setVerticalGroup(
             PnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +213,8 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(tab2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Img_3, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         PnlFondo.setBackground(new java.awt.Color(38, 166, 154));
@@ -226,7 +230,7 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(Panel_1Layout.createSequentialGroup()
                 .addGap(161, 161, 161)
                 .addComponent(Img_2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
         Panel_1Layout.setVerticalGroup(
             Panel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,7 +238,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(Img_1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62)
                 .addComponent(Img_2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 46, Short.MAX_VALUE))
+                .addGap(0, 96, Short.MAX_VALUE))
         );
 
         Panel_2.setBackground(new java.awt.Color(255, 255, 255));
@@ -487,6 +491,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel BtnSalida;
     private javax.swing.JLabel Img_1;
     private javax.swing.JLabel Img_2;
+    private javax.swing.JLabel Img_3;
     private javax.swing.JLabel Label_Salida;
     private javax.swing.JPanel Panel_1;
     private javax.swing.JPanel Panel_2;
