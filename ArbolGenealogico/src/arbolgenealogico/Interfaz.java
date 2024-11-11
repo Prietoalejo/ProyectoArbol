@@ -26,6 +26,9 @@ public class Interfaz extends javax.swing.JFrame {
         initComponents();
         tab1.setBackground(new Color(38,166,154));
         this.setLocationRelativeTo(this);
+        
+        this.pintarImagen(this.Img_1, "src/Img/BannerMedieval.png");
+        this.pintarImagen(this.Img_2, "src/Img/herencia.gif");
     }
 
     /**
@@ -49,12 +52,14 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         PnlFondo = new javax.swing.JPanel();
         Panel_1 = new javax.swing.JPanel();
+        Img_1 = new javax.swing.JLabel();
+        Img_2 = new javax.swing.JLabel();
         Panel_2 = new javax.swing.JPanel();
         Panel_3 = new javax.swing.JPanel();
         BarraArriba = new javax.swing.JPanel();
         BtnSalida = new javax.swing.JPanel();
         Label_Salida = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        BarraAbajo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,10 +92,10 @@ public class Interfaz extends javax.swing.JFrame {
         tab1.setLayout(tab1Layout);
         tab1Layout.setHorizontalGroup(
             tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(tab1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addComponent(TexHome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tab1Layout.setVerticalGroup(
             tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +124,7 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(TexService, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGap(43, 43, 43))
         );
         tab2Layout.setVerticalGroup(
             tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +151,7 @@ public class Interfaz extends javax.swing.JFrame {
         tab3Layout.setHorizontalGroup(
             tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab3Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(44, 44, 44)
                 .addComponent(TexAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -217,11 +222,19 @@ public class Interfaz extends javax.swing.JFrame {
         Panel_1.setLayout(Panel_1Layout);
         Panel_1Layout.setHorizontalGroup(
             Panel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 572, Short.MAX_VALUE)
+            .addComponent(Img_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(Panel_1Layout.createSequentialGroup()
+                .addGap(161, 161, 161)
+                .addComponent(Img_2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(169, Short.MAX_VALUE))
         );
         Panel_1Layout.setVerticalGroup(
             Panel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 477, Short.MAX_VALUE)
+            .addGroup(Panel_1Layout.createSequentialGroup()
+                .addComponent(Img_1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(Img_2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 46, Short.MAX_VALUE))
         );
 
         Panel_2.setBackground(new java.awt.Color(255, 255, 255));
@@ -247,7 +260,7 @@ public class Interfaz extends javax.swing.JFrame {
         );
         Panel_3Layout.setVerticalGroup(
             Panel_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 487, Short.MAX_VALUE)
+            .addGap(0, 504, Short.MAX_VALUE)
         );
 
         BarraArriba.setBackground(new java.awt.Color(102, 102, 102));
@@ -295,16 +308,16 @@ public class Interfaz extends javax.swing.JFrame {
             .addComponent(BtnSalida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        BarraAbajo.setBackground(new java.awt.Color(102, 102, 102));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout BarraAbajoLayout = new javax.swing.GroupLayout(BarraAbajo);
+        BarraAbajo.setLayout(BarraAbajoLayout);
+        BarraAbajoLayout.setHorizontalGroup(
+            BarraAbajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        BarraAbajoLayout.setVerticalGroup(
+            BarraAbajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
@@ -317,7 +330,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(Panel_1, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BarraAbajo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(PnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(PnlFondoLayout.createSequentialGroup()
                     .addGap(21, 21, 21)
@@ -336,7 +349,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(Panel_1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BarraAbajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(PnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(PnlFondoLayout.createSequentialGroup()
                     .addGap(53, 53, 53)
@@ -469,22 +482,22 @@ public class Interfaz extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BarraAbajo;
     private javax.swing.JPanel BarraArriba;
     private javax.swing.JPanel BtnSalida;
+    private javax.swing.JLabel Img_1;
+    private javax.swing.JLabel Img_2;
     private javax.swing.JLabel Label_Salida;
     private javax.swing.JPanel Panel_1;
     private javax.swing.JPanel Panel_2;
     private javax.swing.JPanel Panel_3;
     private javax.swing.JPanel PnlFondo;
     private javax.swing.JPanel PnlMenu;
-    private javax.swing.JPanel Tab2;
     private javax.swing.JLabel TexAbout;
     private javax.swing.JLabel TexHome;
-    private javax.swing.JLabel TexHome1;
     private javax.swing.JLabel TexService;
     private javax.swing.JLabel TextoTitulo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel tab1;
     private javax.swing.JPanel tab2;
