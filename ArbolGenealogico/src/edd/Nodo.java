@@ -10,20 +10,12 @@ package edd;
  */
 public class Nodo {
     private Object element;
-    private int key;
+    private String key; 
     private Nodo[] sons;
-    private Nodo parent; // 
+    private Nodo parent; 
     private Nodo mother;
 
-    public Nodo getMother() {
-        return mother;
-    }
-
-    public void setMother(Nodo mother) {
-        this.mother = mother;
-    }
-
-    public Nodo(Object element, int key) {
+    public Nodo(Object element, String key) { 
         this.element = element;
         this.key = key;
         this.sons = new Nodo[0];
@@ -37,11 +29,11 @@ public class Nodo {
         this.element = element;
     }
 
-    public int getKey() {
+    public String getKey() { 
         return key;
     }
 
-    public void setKey(int key) {
+    public void setKey(String key) { 
         this.key = key;
     }
 
@@ -61,8 +53,11 @@ public class Nodo {
         this.parent = parent;
     }
 
-    
+    public Nodo getMother() {
+        return mother;
+    }
+
+    public void setMother(Nodo mother) {
+        this.mother = mother;
+    }
 }
-
-    
-
