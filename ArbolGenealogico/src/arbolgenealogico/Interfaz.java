@@ -25,11 +25,13 @@ public class Interfaz extends javax.swing.JFrame {
     public Interfaz() {
         initComponents();
         tab1.setBackground(new Color(38,166,154));
+        Panel_2.setVisible(false);
         this.setLocationRelativeTo(this);
         
         this.pintarImagen(this.Img_1, "src/Img/BannerMedieval.png");
         this.pintarImagen(this.Img_2, "src/Img/herencia.gif");
         this.pintarImagen(this.Img_3, "src/Img/Unimet.png");
+        this.pintarImagen(this.Img_4, "src/Img/Arbol_Linaje.jpg");
     }
 
     /**
@@ -63,6 +65,7 @@ public class Interfaz extends javax.swing.JFrame {
         Antepasados = new javax.swing.JButton();
         Título = new javax.swing.JButton();
         Integrantes = new javax.swing.JButton();
+        Img_4 = new javax.swing.JLabel();
         Panel_3 = new javax.swing.JPanel();
         BarraArriba = new javax.swing.JPanel();
         BtnSalida = new javax.swing.JPanel();
@@ -344,7 +347,9 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(Título, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Buscar_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Cargar_Arbol, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(396, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(Img_4, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         Panel_2Layout.setVerticalGroup(
             Panel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,6 +367,10 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(Integrantes, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
+            .addGroup(Panel_2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Img_4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         Panel_3.setBackground(new java.awt.Color(255, 255, 255));
@@ -665,6 +674,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel Img_1;
     private javax.swing.JLabel Img_2;
     private javax.swing.JLabel Img_3;
+    private javax.swing.JLabel Img_4;
     private javax.swing.JButton Integrantes;
     private javax.swing.JLabel Label_Salida;
     private javax.swing.JPanel Panel_1;

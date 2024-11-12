@@ -394,7 +394,9 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="396" max="32767" attributes="0"/>
+                      <EmptySpace pref="70" max="32767" attributes="0"/>
+                      <Component id="Img_4" min="-2" pref="314" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -414,6 +416,11 @@
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="Integrantes" min="-2" pref="37" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="Img_4" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -526,6 +533,8 @@
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="IntegrantesMouseEntered"/>
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="IntegrantesMouseExited"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="Img_4">
             </Component>
           </SubComponents>
         </Container>
