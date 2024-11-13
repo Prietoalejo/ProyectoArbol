@@ -10,4 +10,5 @@ package edd;
  */
 public class BinaryTree {
     
+    
 }
