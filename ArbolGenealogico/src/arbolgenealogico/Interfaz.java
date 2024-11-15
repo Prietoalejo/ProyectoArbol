@@ -4,10 +4,17 @@
  */
 package arbolgenealogico;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import java.awt.Color;
 import java.awt.Image;
+import java.nio.file.Files;
+import java.util.Map;
+import java.util.Set;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 
 /**
@@ -15,19 +22,18 @@ import javax.swing.JLabel;
  * @author
  * @author
  */
-
 public class Interfaz extends javax.swing.JFrame {
 
     int xMouse, yMouse;
     private ImageIcon imagen;
     private Icon icono;
-    
+
     public Interfaz() {
         initComponents();
-        tab1.setBackground(new Color(38,166,154));
+        tab1.setBackground(new Color(38, 166, 154));
         Panel_2.setVisible(false);
         this.setLocationRelativeTo(this);
-        
+
         this.pintarImagen(this.Img_1, "src/Img/BannerMedieval.png");
         this.pintarImagen(this.Img_2, "src/Img/herencia.gif");
         this.pintarImagen(this.Img_3, "src/Img/Unimet.png");
@@ -277,6 +283,11 @@ public class Interfaz extends javax.swing.JFrame {
                 Ver_RegistroMouseExited(evt);
             }
         });
+        Ver_Registro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ver_RegistroActionPerformed(evt);
+            }
+        });
 
         Buscar_nombre.setBackground(new java.awt.Color(38, 166, 154));
         Buscar_nombre.setFont(new java.awt.Font("Monotype Corsiva", 1, 16)); // NOI18N
@@ -504,31 +515,31 @@ public class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tab1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab1MouseClicked
-       Panel_1.setVisible(true);
-       Panel_2.setVisible(false);
-       Panel_3.setVisible(false);
-       tab1.setBackground(Color.black);
-       tab2.setBackground(new Color(38,166,154));
-       tab3.setBackground(new Color(38,166,154));
+        Panel_1.setVisible(true);
+        Panel_2.setVisible(false);
+        Panel_3.setVisible(false);
+        tab1.setBackground(Color.black);
+        tab2.setBackground(new Color(38, 166, 154));
+        tab3.setBackground(new Color(38, 166, 154));
     }//GEN-LAST:event_tab1MouseClicked
 
     private void tab2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab2MouseClicked
-       Panel_1.setVisible(false);
-       Panel_2.setVisible(true);
-       Panel_3.setVisible(false);
-       tab2.setBackground(Color.black);
-       tab1.setBackground(new Color(38,166,154));
-       tab3.setBackground(new Color(38,166,154));
-       
+        Panel_1.setVisible(false);
+        Panel_2.setVisible(true);
+        Panel_3.setVisible(false);
+        tab2.setBackground(Color.black);
+        tab1.setBackground(new Color(38, 166, 154));
+        tab3.setBackground(new Color(38, 166, 154));
+
     }//GEN-LAST:event_tab2MouseClicked
 
     private void tab3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab3MouseClicked
-       Panel_1.setVisible(false);
-       Panel_2.setVisible(false);
-       Panel_3.setVisible(true);
-       tab3.setBackground(Color.black);
-       tab1.setBackground(new Color(38,166,154));
-       tab2.setBackground(new Color(38,166,154));
+        Panel_1.setVisible(false);
+        Panel_2.setVisible(false);
+        Panel_3.setVisible(true);
+        tab3.setBackground(Color.black);
+        tab1.setBackground(new Color(38, 166, 154));
+        tab2.setBackground(new Color(38, 166, 154));
     }//GEN-LAST:event_tab3MouseClicked
 
     private void Label_SalidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_SalidaMouseClicked
@@ -541,7 +552,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_Label_SalidaMouseEntered
 
     private void Label_SalidaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_SalidaMouseExited
-        BtnSalida.setBackground(new Color(38,166,154));// Devuelve el color del background
+        BtnSalida.setBackground(new Color(38, 166, 154));// Devuelve el color del background
         Label_Salida.setForeground(Color.black);
     }//GEN-LAST:event_Label_SalidaMouseExited
 
@@ -557,64 +568,109 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_PnlMenuMousePressed
 
     private void Ver_RegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ver_RegistroMouseEntered
-        Ver_Registro.setBackground(Color.black); 
+        Ver_Registro.setBackground(Color.black);
         Ver_Registro.setForeground(Color.white);
     }//GEN-LAST:event_Ver_RegistroMouseEntered
 
     private void Ver_RegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ver_RegistroMouseExited
-        Ver_Registro.setBackground(new Color(38,166,154));
+        Ver_Registro.setBackground(new Color(38, 166, 154));
         Ver_Registro.setForeground(Color.white);
     }//GEN-LAST:event_Ver_RegistroMouseExited
 
     private void Cargar_ArbolMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cargar_ArbolMouseEntered
-        Cargar_Arbol.setBackground(Color.black); 
+        Cargar_Arbol.setBackground(Color.black);
         Cargar_Arbol.setForeground(Color.white);
     }//GEN-LAST:event_Cargar_ArbolMouseEntered
 
     private void Cargar_ArbolMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cargar_ArbolMouseExited
-        Cargar_Arbol.setBackground(new Color(38,166,154));
+        Cargar_Arbol.setBackground(new Color(38, 166, 154));
         Cargar_Arbol.setForeground(Color.white);
     }//GEN-LAST:event_Cargar_ArbolMouseExited
 
     private void Buscar_nombreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Buscar_nombreMouseEntered
-        Buscar_nombre.setBackground(Color.black); 
+        Buscar_nombre.setBackground(Color.black);
         Buscar_nombre.setForeground(Color.white);
     }//GEN-LAST:event_Buscar_nombreMouseEntered
 
     private void Buscar_nombreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Buscar_nombreMouseExited
-        Buscar_nombre.setBackground(new Color(38,166,154));
+        Buscar_nombre.setBackground(new Color(38, 166, 154));
         Buscar_nombre.setForeground(Color.white);
     }//GEN-LAST:event_Buscar_nombreMouseExited
 
     private void AntepasadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AntepasadosMouseEntered
-        Antepasados.setBackground(Color.black); 
+        Antepasados.setBackground(Color.black);
         Antepasados.setForeground(Color.white);
     }//GEN-LAST:event_AntepasadosMouseEntered
 
     private void AntepasadosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AntepasadosMouseExited
-        Antepasados.setBackground(new Color(38,166,154));
+        Antepasados.setBackground(new Color(38, 166, 154));
         Antepasados.setForeground(Color.white);
     }//GEN-LAST:event_AntepasadosMouseExited
 
     private void TítuloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TítuloMouseEntered
-        Título.setBackground(Color.black); 
+        Título.setBackground(Color.black);
         Título.setForeground(Color.white);
     }//GEN-LAST:event_TítuloMouseEntered
 
     private void TítuloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TítuloMouseExited
-        Título.setBackground(new Color(38,166,154));
+        Título.setBackground(new Color(38, 166, 154));
         Título.setForeground(Color.white);
     }//GEN-LAST:event_TítuloMouseExited
 
     private void IntegrantesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntegrantesMouseEntered
-        Integrantes.setBackground(Color.black); 
+        Integrantes.setBackground(Color.black);
         Integrantes.setForeground(Color.white);
     }//GEN-LAST:event_IntegrantesMouseEntered
 
     private void IntegrantesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntegrantesMouseExited
-        Integrantes.setBackground(new Color(38,166,154));
+        Integrantes.setBackground(new Color(38, 166, 154));
         Integrantes.setForeground(Color.white);
     }//GEN-LAST:event_IntegrantesMouseExited
+
+    private void Ver_RegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ver_RegistroActionPerformed
+
+        var chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+
+        var file = chooser.getSelectedFile();
+
+        if (file != null) {
+            try {
+                var nombre = file.getName();
+
+                var contenido = new String(Files.readAllBytes(file.toPath()));
+
+                //Parsear el contenido JSON
+                JsonParser parser = new JsonParser();
+                JsonElement element = parser.parse(contenido);
+                //Tipo de dato Set 
+                Set<Map.Entry<String, JsonElement>> casas = element.getAsJsonObject().entrySet();
+                // var valor = casas.iterator().next();
+                for (Map.Entry<String, JsonElement> casa : casas) {
+                    String nombreCasa = casa.getKey();
+                    System.out.println(nombreCasa);
+                    JsonArray miembros = casa.getValue().getAsJsonArray();
+                    for (JsonElement miembro : miembros) {
+                        //String la clave y el JsonElement es el valor
+                        Set<Map.Entry<String, JsonElement>> miembroLinajeEntry = miembro.getAsJsonObject().entrySet();
+                        for (Map.Entry<String, JsonElement> miembroLinaje : miembroLinajeEntry) {
+                            String nombreMiembro = miembroLinaje.getKey();
+                            System.out.println(nombreMiembro);
+                            JsonArray miembroAtributos = miembroLinaje.getValue().getAsJsonArray();
+                            for (JsonElement miembroAtributo : miembroAtributos) {
+                                var suNombre = miembroAtributo.getAsJsonObject().get("Of his name");
+                                var bornTo = miembroAtributo.getAsJsonObject().get("Born to");                               
+                            }
+                        }
+                    }
+                }
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+
+        }
+    }//GEN-LAST:event_Ver_RegistroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -663,7 +719,7 @@ public class Interfaz extends javax.swing.JFrame {
         lb1.setIcon(this.icono);
         this.repaint();
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Antepasados;
     private javax.swing.JPanel BarraAbajo;

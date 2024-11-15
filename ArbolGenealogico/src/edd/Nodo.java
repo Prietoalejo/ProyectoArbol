@@ -8,15 +8,15 @@ package edd;
  *
  * @author Alejandro
  */
-public class Nodo {
-    private Object element;
+public class Nodo<T> {
+    private T element;
     private String key; 
     private Nodo[] sons;
     private Nodo parent; 
     private Nodo mother;
 
-    public Nodo(Object element, String key) { 
-        this.element = element;
+    public Nodo( T element, String key) { 
+        this.element= element;
         this.key = key;
         this.sons = new Nodo[0];
     }
@@ -25,7 +25,7 @@ public class Nodo {
         return element;
     }
 
-    public void setElement(Object element) {
+    public void setElement( T element) {
         this.element = element;
     }
 
