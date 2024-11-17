@@ -12,6 +12,7 @@ import java.awt.Image;
 import java.nio.file.Files;
 import java.util.Map;
 import java.util.Set;
+import javax.print.attribute.HashPrintJobAttributeSet;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -22,6 +23,7 @@ import javax.swing.JLabel;
  * @author
  * @author
  */
+
 public class Interfaz extends javax.swing.JFrame {
 
     int xMouse, yMouse;
@@ -659,66 +661,74 @@ public class Interfaz extends javax.swing.JFrame {
                             JsonArray miembroAtributos = miembroLinaje.getValue().getAsJsonArray();
                             for (JsonElement miembroAtributo : miembroAtributos) {
                                 var suNombre = miembroAtributo.getAsJsonObject().get("Of his name");
-                                var bornTo = miembroAtributo.getAsJsonObject().get("Born to");                               
+                                var bornTo = miembroAtributo.getAsJsonObject().get("Born to");
+                                var knownThroughoutAs = miembroAtributo.getAsJsonObject().get("Known throughout as");
+                                var heldTitle = miembroAtributo.getAsJsonObject().get("Held title");
+                                var wedTo = miembroAtributo.getAsJsonObject().get("Wed to");
+                                var ofEyes = miembroAtributo.getAsJsonObject().get("Of eyes");
+                                var ofhair = miembroAtributo.getAsJsonObject().get("Of hair");
+                                var notes = miembroAtributo.getAsJsonObject().get("Notes");
+                                var fate = miembroAtributo.getAsJsonObject().get("Fate");
+                                System.out.println(miembroAtributo);                               
                             }
                         }
                     }
                 }
 
-            } catch (Exception e) {
+        }catch (Exception e) {
                 System.out.println(e);
             }
 
-        }
+    }
     }//GEN-LAST:event_Ver_RegistroActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    /* Set the Nimbus look and feel */
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+     */
+    try {
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                break;
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Interfaz().setVisible(true);
-            }
-        });
+    } catch (ClassNotFoundException ex) {
+        java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (InstantiationException ex) {
+        java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (IllegalAccessException ex) {
+        java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
+    //</editor-fold>
+
+    /* Create and display the form */
+    java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+            new Interfaz().setVisible(true);
+        }
+    });
+}
 
     private void pintarImagen(JLabel lb1, String ruta) {
-        this.imagen = new ImageIcon(ruta);
-        this.icono = new ImageIcon(
-                this.imagen.getImage().getScaledInstance(
-                        lb1.getWidth(),
-                        lb1.getHeight(),
-                        Image.SCALE_DEFAULT
-                )
-        );
-        lb1.setIcon(this.icono);
-        this.repaint();
-    }
+    this.imagen = new ImageIcon(ruta);
+    this.icono = new ImageIcon(
+            this.imagen.getImage().getScaledInstance(
+                    lb1.getWidth(),
+                    lb1.getHeight(),
+                    Image.SCALE_DEFAULT
+            )
+    );
+    lb1.setIcon(this.icono);
+    this.repaint();
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Antepasados;
