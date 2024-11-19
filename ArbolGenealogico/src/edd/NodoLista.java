@@ -15,6 +15,53 @@ public class NodoLista {
     private NodoLista[] sons;
     private NodoLista parent;
     private NodoLista mother;
+    private String heldTitle; 
+    private String eyeColor; 
+    private String hairColor;
+    private String notes;
+    private String fate; 
+
+    public String getHeldTitle() {
+        return heldTitle;
+    }
+
+    public void setHeldTitle(String heldTitle) {
+        this.heldTitle = heldTitle;
+    }
+
+    
+
+    public String getEyeColor() {
+        return eyeColor;
+    }
+
+    public void setEyeColor(String eyeColor) {
+        this.eyeColor = eyeColor;
+    }
+
+    public String getHairColor() {
+        return hairColor;
+    }
+
+    public void setHairColor(String hairColor) {
+        this.hairColor = hairColor;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public String getFate() {
+        return fate;
+    }
+
+    public void setFate(String fate) {
+        this.fate = fate;
+    }
     
     public NodoLista(String element, int key , String mote) {
         this.nombre = element;
