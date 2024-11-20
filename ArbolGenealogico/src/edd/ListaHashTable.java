@@ -11,11 +11,12 @@ package edd;
 public class ListaHashTable {
     public NodoListaHashTable head;
     public String indice;
-
+    public int size;
 
     public ListaHashTable () {
         head = null;
         indice = "";
+        size = 0;
     }
     
      
@@ -43,6 +44,7 @@ public class ListaHashTable {
             }
             pointer.next=nodo;
         }
+        size ++;
         return nodo;
 
     }
@@ -67,7 +69,7 @@ public class ListaHashTable {
         
         NodoListaHashTable aux = deleteNode.next;
         deleteNode.next = aux.next;
-
+        size --;
         return head;
     }
     

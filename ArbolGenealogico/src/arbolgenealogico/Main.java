@@ -35,6 +35,12 @@ public class Main {
         System.out.println("ARBOL");
         tree.print(tree.getRoot());
         
+        ListaHashTable lista = tree.buscarGeneracion(2, 0, tree.getRoot(), new ListaHashTable());
+        NodoListaHashTable aux = lista.head;
+        while(aux!= null){
+            System.out.println(aux.nodoarbol.getKey());
+            aux = aux.next;
+        }
         
         /*FUNCIONES PARA CREAR EL HASH TABLE*/
         System.out.println("HASH TABLE");
@@ -58,7 +64,7 @@ public class Main {
         ListaHashTable lista_personas_encontrada = tree.getHt().getPersonajePorNombre("0");
         
         if(lista_personas_encontrada!= null){
-            NodoListaHashTable aux = lista_personas_encontrada.head;
+             aux = lista_personas_encontrada.head;
             while(aux!=null){
                 System.out.println(aux.val);
                 aux = aux.next;
@@ -69,7 +75,7 @@ public class Main {
         lista_personas_encontrada = tree.getHt().getPersonajePorMote("mote 9");
         
         if(lista_personas_encontrada!= null){
-            NodoListaHashTable aux = lista_personas_encontrada.head;
+             aux = lista_personas_encontrada.head;
             while(aux!=null){
                 System.out.println(aux.nodoarbol.getMote());
                 aux = aux.next;

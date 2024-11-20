@@ -4,7 +4,7 @@
  */
 package arbolgenealogico;
 
-import com.google.gson.JsonArray;
+import com.google.gson.JsonArray; //Creo que esta no se puede usar.
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import java.awt.Color;
@@ -49,6 +49,7 @@ public class Interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox<>();
         PnlMenu = new javax.swing.JPanel();
         tab1 = new javax.swing.JPanel();
         TexHome = new javax.swing.JLabel();
@@ -77,6 +78,8 @@ public class Interfaz extends javax.swing.JFrame {
         BtnSalida = new javax.swing.JPanel();
         Label_Salida = new javax.swing.JLabel();
         BarraAbajo = new javax.swing.JPanel();
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -762,6 +765,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel TextoTitulo;
     private javax.swing.JButton Título;
     private javax.swing.JButton Ver_Registro;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel tab1;

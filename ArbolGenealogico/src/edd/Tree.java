@@ -144,4 +144,18 @@ public class Tree {
         mostrarAncestros(nodo.getParent());
         mostrarAncestros(nodo.getMother());
     }
+    
+    //Metodo completo, falta prueba, 6.
+    public ListaHashTable buscarGeneracion(int generacion, int actual, NodoLista nodo, ListaHashTable resultado){
+        if(nodo != null){
+            if(generacion == actual){
+                resultado.insertar(nodo);
+            }else{
+                for(NodoLista hijo: nodo.getSons()){
+                    resultado = buscarGeneracion(generacion, actual + 1, hijo, resultado);
+                }
+            }
+        }
+        return resultado;
+    }
 }
