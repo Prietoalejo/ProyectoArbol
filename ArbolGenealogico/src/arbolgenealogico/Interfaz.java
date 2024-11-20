@@ -262,7 +262,7 @@ public class Interfaz extends javax.swing.JFrame {
         Cargar_Arbol.setBackground(new java.awt.Color(38, 166, 154));
         Cargar_Arbol.setFont(new java.awt.Font("Monotype Corsiva", 1, 16)); // NOI18N
         Cargar_Arbol.setForeground(new java.awt.Color(255, 255, 255));
-        Cargar_Arbol.setText("Ver Registro");
+        Cargar_Arbol.setText("Cargar Árbol");
         Cargar_Arbol.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Cargar_ArbolMouseEntered(evt);
@@ -271,22 +271,22 @@ public class Interfaz extends javax.swing.JFrame {
                 Cargar_ArbolMouseExited(evt);
             }
         });
+        Cargar_Arbol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cargar_ArbolActionPerformed(evt);
+            }
+        });
 
         Ver_Registro.setBackground(new java.awt.Color(38, 166, 154));
         Ver_Registro.setFont(new java.awt.Font("Monotype Corsiva", 1, 16)); // NOI18N
         Ver_Registro.setForeground(new java.awt.Color(255, 255, 255));
-        Ver_Registro.setText("Cargar Árbol");
+        Ver_Registro.setText("Ver Registro");
         Ver_Registro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 Ver_RegistroMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 Ver_RegistroMouseExited(evt);
-            }
-        });
-        Ver_Registro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Ver_RegistroActionPerformed(evt);
             }
         });
 
@@ -354,11 +354,11 @@ public class Interfaz extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Panel_2Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(Panel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Ver_Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Cargar_Arbol, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Integrantes, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Título, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Buscar_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Cargar_Arbol, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(Ver_Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(Img_4, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -367,9 +367,9 @@ public class Interfaz extends javax.swing.JFrame {
             Panel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_2Layout.createSequentialGroup()
                 .addContainerGap(78, Short.MAX_VALUE)
-                .addComponent(Ver_Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
                 .addComponent(Cargar_Arbol, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(Ver_Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(Buscar_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
@@ -568,16 +568,6 @@ public class Interfaz extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_PnlMenuMousePressed
 
-    private void Ver_RegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ver_RegistroMouseEntered
-        Ver_Registro.setBackground(Color.black);
-        Ver_Registro.setForeground(Color.white);
-    }//GEN-LAST:event_Ver_RegistroMouseEntered
-
-    private void Ver_RegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ver_RegistroMouseExited
-        Ver_Registro.setBackground(new Color(38, 166, 154));
-        Ver_Registro.setForeground(Color.white);
-    }//GEN-LAST:event_Ver_RegistroMouseExited
-
     private void Cargar_ArbolMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cargar_ArbolMouseEntered
         Cargar_Arbol.setBackground(Color.black);
         Cargar_Arbol.setForeground(Color.white);
@@ -587,6 +577,16 @@ public class Interfaz extends javax.swing.JFrame {
         Cargar_Arbol.setBackground(new Color(38, 166, 154));
         Cargar_Arbol.setForeground(Color.white);
     }//GEN-LAST:event_Cargar_ArbolMouseExited
+
+    private void Ver_RegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ver_RegistroMouseEntered
+        Ver_Registro.setBackground(Color.black);
+        Ver_Registro.setForeground(Color.white);
+    }//GEN-LAST:event_Ver_RegistroMouseEntered
+
+    private void Ver_RegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ver_RegistroMouseExited
+        Ver_Registro.setBackground(new Color(38, 166, 154));
+        Ver_Registro.setForeground(Color.white);
+    }//GEN-LAST:event_Ver_RegistroMouseExited
 
     private void Buscar_nombreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Buscar_nombreMouseEntered
         Buscar_nombre.setBackground(Color.black);
@@ -628,7 +628,7 @@ public class Interfaz extends javax.swing.JFrame {
         Integrantes.setForeground(Color.white);
     }//GEN-LAST:event_IntegrantesMouseExited
 
-    private void Ver_RegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ver_RegistroActionPerformed
+    private void Cargar_ArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cargar_ArbolActionPerformed
 
         var chooser = new JFileChooser();
         chooser.showOpenDialog(null);
@@ -687,7 +687,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
 
         }
-    }//GEN-LAST:event_Ver_RegistroActionPerformed
+    }//GEN-LAST:event_Cargar_ArbolActionPerformed
 
     /**
      * @param args the command line arguments

@@ -386,11 +386,11 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="Ver_Registro" min="-2" pref="128" max="-2" attributes="0"/>
+                                  <Component id="Cargar_Arbol" min="-2" pref="128" max="-2" attributes="0"/>
                                   <Component id="Integrantes" min="-2" pref="128" max="-2" attributes="0"/>
                                   <Component id="Título" min="-2" pref="128" max="-2" attributes="0"/>
                                   <Component id="Buscar_nombre" min="-2" pref="128" max="-2" attributes="0"/>
-                                  <Component id="Cargar_Arbol" min="-2" pref="128" max="-2" attributes="0"/>
+                                  <Component id="Ver_Registro" min="-2" pref="128" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -404,9 +404,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="78" max="32767" attributes="0"/>
-                      <Component id="Ver_Registro" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="Cargar_Arbol" min="-2" pref="37" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="Ver_Registro" min="-2" pref="37" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="Buscar_nombre" min="-2" pref="37" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
@@ -437,11 +437,12 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ver Registro"/>
+                <Property name="text" type="java.lang.String" value="Cargar &#xc1;rbol"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Cargar_ArbolMouseEntered"/>
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Cargar_ArbolMouseExited"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cargar_ArbolActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="Ver_Registro">
@@ -455,12 +456,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cargar &#xc1;rbol"/>
+                <Property name="text" type="java.lang.String" value="Ver Registro"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Ver_RegistroMouseEntered"/>
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Ver_RegistroMouseExited"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Ver_RegistroActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="Buscar_nombre">
