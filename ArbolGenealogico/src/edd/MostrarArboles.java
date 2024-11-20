@@ -54,7 +54,27 @@ public void CreacionConexiones (NodoLista Nodo){
             }  
 }
 
+public void mostrarAncestros(NodoLista nodo) {
+        if (nodo == null) return; 
+
+        AgregarParada(nodo.getNombre());
+
+        mostrarAncestros(nodo.getParent());
+        mostrarAncestros(nodo.getMother());
+    }
+
+public void mostrarVisualAncestros (NodoLista nodo){
+    mostrarAncestros (nodo);
+    // CreacionConexiones (arbol.getRoot());
+    graph.display();
+    
+    
+    
+}
 
 }
+
+
+
 
 

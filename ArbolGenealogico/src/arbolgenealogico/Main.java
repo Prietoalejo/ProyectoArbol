@@ -89,6 +89,9 @@ public class Main {
         MostrarArboles Arbol = new MostrarArboles();
         Arbol.mostrar(tree);
         
+        MostrarArboles Arbol2 = new MostrarArboles();
+        Arbol2.mostrarVisualAncestros(nodoarbol);
+        
     }
     
     
