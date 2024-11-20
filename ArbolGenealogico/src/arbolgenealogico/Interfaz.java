@@ -12,7 +12,6 @@ import java.awt.Image;
 import java.nio.file.Files;
 import java.util.Map;
 import java.util.Set;
-import javax.print.attribute.HashPrintJobAttributeSet;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -630,35 +629,36 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void Cargar_ArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cargar_ArbolActionPerformed
 
-        var chooser = new JFileChooser();
-        chooser.showOpenDialog(null);
+        var chooser = new JFileChooser();//seleccionar un archivo
+        chooser.showOpenDialog(null);// Abre el cuadro de diálogo
 
-        var file = chooser.getSelectedFile();
+        var file = chooser.getSelectedFile();// Obtiene el archivo seleccionado
 
-        if (file != null) {
+        if (file != null) { // Verifica si se seleccionó un archivo
             try {
                 var nombre = file.getName();
-
+                // Lee el contenido del archivo en una cadena de texto
                 var contenido = new String(Files.readAllBytes(file.toPath()));
 
-                //Parsear el contenido JSON
                 JsonParser parser = new JsonParser();
                 JsonElement element = parser.parse(contenido);
                 //Tipo de dato Set 
+                // Itera sobre cada entrada en el conjunto
                 Set<Map.Entry<String, JsonElement>> casas = element.getAsJsonObject().entrySet();
-                // var valor = casas.iterator().next();
+                // For loop
                 for (Map.Entry<String, JsonElement> casa : casas) {
-                    String nombreCasa = casa.getKey();
-                    System.out.println(nombreCasa);
-                    JsonArray miembros = casa.getValue().getAsJsonArray();
+                    String nombreCasa = casa.getKey();// Obtiene el nombre de la casa
+                    System.out.println(nombreCasa);// Imprime el nombre de la casa
+                    JsonArray miembros = casa.getValue().getAsJsonArray();//// Obtiene los miembros de la casa como un JsonArray
                     for (JsonElement miembro : miembros) {
                         //String la clave y el JsonElement es el valor
+                        //Obtiene un conjunto de entradas del objeto JSON de los miembros
                         Set<Map.Entry<String, JsonElement>> miembroLinajeEntry = miembro.getAsJsonObject().entrySet();
                         for (Map.Entry<String, JsonElement> miembroLinaje : miembroLinajeEntry) {
                             String nombreMiembro = miembroLinaje.getKey();
                             System.out.println(nombreMiembro);
                             JsonArray miembroAtributos = miembroLinaje.getValue().getAsJsonArray();
-                            for (JsonElement miembroAtributo : miembroAtributos) {
+                            for (JsonElement miembroAtributo : miembroAtributos) { // Itera sobre cada atributo del miembro
                                 var suNombre = miembroAtributo.getAsJsonObject().get("Of his name");
                                 var bornTo = miembroAtributo.getAsJsonObject().get("Born to");
                                 var knownThroughoutAs = miembroAtributo.getAsJsonObject().get("Known throughout as");
@@ -670,8 +670,9 @@ public class Interfaz extends javax.swing.JFrame {
                                 var fate = miembroAtributo.getAsJsonObject().get("Fate");
                                 System.out.println(miembroAtributo);
 
+                                // Verifica y recorre "Father to"
                                 if (miembroAtributo.getAsJsonObject().has("Father to")) {
-                                    JsonArray fatherTo = miembroAtributo.getAsJsonObject().get("Father to").getAsJsonArray();
+                                    JsonArray fatherTo = miembroAtributo.getAsJsonObject().get("Father to").getAsJsonArray();//Obtiene la lista de hijos
                                     System.out.println("Father to:");
                                     for (JsonElement hijo : fatherTo) {
                                         System.out.println(hijo.getAsString());
