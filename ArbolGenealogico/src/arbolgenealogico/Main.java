@@ -8,7 +8,6 @@ import edd.NodoLista;
 import edd.Tree;
 import edd.NodoListaHashTable;
 import edd.ListaHashTable;
-import edd.MostrarArboles;
 /**
  *
  * @author Alejandro
@@ -84,13 +83,6 @@ public class Main {
         System.out.println("ARBOLES HT ANCESTROS");
         nodoarbol = tree.getHt().gettNodeById("99");
         tree.mostrarAncestros(nodoarbol);
-        
-        System.setProperty("org.graphstream.ui", "swing");
-        MostrarArboles Arbol = new MostrarArboles();
-        Arbol.mostrar(tree);
-        
     }
-    
-    
     
 }
