@@ -330,6 +330,11 @@ public class Interfaz extends javax.swing.JFrame {
                 TítuloMouseExited(evt);
             }
         });
+        Título.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TítuloActionPerformed(evt);
+            }
+        });
 
         Integrantes.setBackground(new java.awt.Color(38, 166, 154));
         Integrantes.setFont(new java.awt.Font("Monotype Corsiva", 1, 16)); // NOI18N
@@ -692,6 +697,14 @@ public class Interfaz extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_Cargar_ArbolActionPerformed
+
+    private void TítuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TítuloActionPerformed
+        /*
+        Boton para manejar la funcionalidad 5
+        
+        */
+        
+    }//GEN-LAST:event_TítuloActionPerformed
 
     /**
      * @param args the command line arguments

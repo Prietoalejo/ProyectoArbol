@@ -35,10 +35,10 @@ public class Main {
         System.out.println("ARBOL");
         tree.print(tree.getRoot());
         
-        ListaHashTable lista = tree.buscarGeneracion(2, 0, tree.getRoot(), new ListaHashTable());
+        ListaHashTable lista = tree.buscarGeneracion(1, 0, tree.getRoot(), new ListaHashTable());
         NodoListaHashTable aux = lista.head;
         while(aux!= null){
-            System.out.println(aux.nodoarbol.getKey());
+            System.out.println(aux.nodoarbol.getNombre());
             aux = aux.next;
         }
         
