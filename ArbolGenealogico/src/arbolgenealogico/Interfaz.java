@@ -32,6 +32,10 @@ public class Interfaz extends javax.swing.JFrame {
         initComponents();
         tab1.setBackground(new Color(38, 166, 154));
         Panel_2.setVisible(false);
+        Panel_3.setVisible(false);
+        Panel_4.setVisible(false);
+        Panel_5.setVisible(false);
+        Panel_6.setVisible(false);
         this.setLocationRelativeTo(this);
 
         this.pintarImagen(this.Img_1, "src/Img/BannerMedieval.png");
@@ -72,9 +76,13 @@ public class Interfaz extends javax.swing.JFrame {
         Panel_2 = new javax.swing.JPanel();
         Img_4 = new javax.swing.JLabel();
         Panel_3 = new javax.swing.JPanel();
+        jToggleButton1 = new javax.swing.JToggleButton();
         Panel_4 = new javax.swing.JPanel();
+        jToggleButton2 = new javax.swing.JToggleButton();
         Panel_5 = new javax.swing.JPanel();
+        jToggleButton3 = new javax.swing.JToggleButton();
         Panel_6 = new javax.swing.JPanel();
+        jToggleButton4 = new javax.swing.JToggleButton();
         BarraArriba = new javax.swing.JPanel();
         BtnSalida = new javax.swing.JPanel();
         Label_Salida = new javax.swing.JLabel();
@@ -400,54 +408,86 @@ public class Interfaz extends javax.swing.JFrame {
 
         Panel_3.setBackground(new java.awt.Color(255, 255, 255));
 
+        jToggleButton1.setText("jToggleButton1");
+
         javax.swing.GroupLayout Panel_3Layout = new javax.swing.GroupLayout(Panel_3);
         Panel_3.setLayout(Panel_3Layout);
         Panel_3Layout.setHorizontalGroup(
             Panel_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 588, Short.MAX_VALUE)
+            .addGroup(Panel_3Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(449, Short.MAX_VALUE))
         );
         Panel_3Layout.setVerticalGroup(
             Panel_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+            .addGroup(Panel_3Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jToggleButton1)
+                .addContainerGap(459, Short.MAX_VALUE))
         );
 
         Panel_4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jToggleButton2.setText("jToggleButton2");
 
         javax.swing.GroupLayout Panel_4Layout = new javax.swing.GroupLayout(Panel_4);
         Panel_4.setLayout(Panel_4Layout);
         Panel_4Layout.setHorizontalGroup(
             Panel_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 588, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_4Layout.createSequentialGroup()
+                .addContainerGap(388, Short.MAX_VALUE)
+                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87))
         );
         Panel_4Layout.setVerticalGroup(
             Panel_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_4Layout.createSequentialGroup()
+                .addContainerGap(390, Short.MAX_VALUE)
+                .addComponent(jToggleButton2)
+                .addGap(105, 105, 105))
         );
 
         Panel_5.setBackground(new java.awt.Color(255, 255, 255));
+
+        jToggleButton3.setText("jToggleButton3");
 
         javax.swing.GroupLayout Panel_5Layout = new javax.swing.GroupLayout(Panel_5);
         Panel_5.setLayout(Panel_5Layout);
         Panel_5Layout.setHorizontalGroup(
             Panel_5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 588, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_5Layout.createSequentialGroup()
+                .addContainerGap(312, Short.MAX_VALUE)
+                .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(163, 163, 163))
         );
         Panel_5Layout.setVerticalGroup(
             Panel_5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+            .addGroup(Panel_5Layout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addComponent(jToggleButton3)
+                .addContainerGap(367, Short.MAX_VALUE))
         );
 
         Panel_6.setBackground(new java.awt.Color(255, 255, 255));
+
+        jToggleButton4.setText("jToggleButton4");
 
         javax.swing.GroupLayout Panel_6Layout = new javax.swing.GroupLayout(Panel_6);
         Panel_6.setLayout(Panel_6Layout);
         Panel_6Layout.setHorizontalGroup(
             Panel_6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 588, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_6Layout.createSequentialGroup()
+                .addContainerGap(316, Short.MAX_VALUE)
+                .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(159, 159, 159))
         );
         Panel_6Layout.setVerticalGroup(
             Panel_6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+            .addGroup(Panel_6Layout.createSequentialGroup()
+                .addGap(194, 194, 194)
+                .addComponent(jToggleButton4)
+                .addContainerGap(301, Short.MAX_VALUE))
         );
 
         BarraArriba.setBackground(new java.awt.Color(102, 102, 102));
@@ -860,6 +900,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel TextoTitulo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JPanel tab1;
     private javax.swing.JPanel tab2;
     private javax.swing.JPanel tab3;
