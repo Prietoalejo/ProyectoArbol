@@ -78,7 +78,7 @@ public class ListaHashTable {
 
         while (aux != null){
 
-            if (aux.val == val) {
+            if (aux.val.equals(val)) {
                 System.out.println("SE ENCONTRO EL VALOR " +val + " EN LA LISTA" );
                 return true;
             }
@@ -86,6 +86,24 @@ public class ListaHashTable {
         }
 
         System.out.println("No SE ENCONTRO EL VALOR " +val + " EN LA LISTA" );
+        return false;
+    }
+    
+    public boolean buscar(String mote){
+        /*
+        Metodo de busqueda por Mote para ver si existe el elemento en la lista
+        */
+        NodoListaHashTable aux = head;
+            
+        while (aux != null){
+
+            if (aux.nodoarbol.getMote().equals(mote)) {
+                return true;
+            }
+            aux = aux.next;
+        }
+
+
         return false;
     }
 }

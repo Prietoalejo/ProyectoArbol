@@ -19,16 +19,16 @@ public class Main {
         Tree tree = new Tree();
         NodoLista nodoarbol;
         
-        tree.insert("8", -1, -1, null,"mote 8");
-        tree.insert("10", 0, 0,tree.getRoot(),"mote 10");
-        tree.insert("22", 0,  0,tree.getRoot(),"mote 22");
-        tree.insert("5", 0,  0,tree.getRoot(),"mote 5");
-        tree.insert("80", 0, 0, tree.getRoot(),"mote 80");
-        tree.insert("15", 0, 0, tree.getRoot(),"mote 15");
-        tree.insert("3", 0, 0, tree.getRoot(),"mote 3");
-        tree.insert("1", 3,2, tree.getRoot(),"mote 1"); 
-        tree.insert("7", 3,5, tree.getRoot(),"mote 7");
-        tree.insert("9", 6,2, tree.getRoot(),"mote 9");
+        tree.insert("8", -1, -1, null,"mote 8");//0
+        tree.insert("10", 0, -1,tree.getRoot(),"mote 10");
+        tree.insert("22", 0,  -1,tree.getRoot(),"mote 22");//2
+        tree.insert("5", 0,  -1,tree.getRoot(),"mote 5");//3
+        tree.insert("80", 0, -1, tree.getRoot(),"mote 80");
+        tree.insert("15", 0, -1, tree.getRoot(),"mote 15");
+        tree.insert("3", 0, -1, tree.getRoot(),"mote 3");//
+        tree.insert("1", 3,2, tree.getRoot(),"mote 1"); //9
+        tree.insert("7", 3,5, tree.getRoot(),"mote 7");//16
+        tree.insert("9", 6,2, tree.getRoot(),"mote 9");//9
         tree.insert("99", 9,16, tree.getRoot(),"mote 99");
         
         /*FUNCIONES PARA MOSTRAR EL ARBOL*/
@@ -89,11 +89,15 @@ public class Main {
 
         System.out.println("ARBOLES HT ANCESTROS");
         nodoarbol = tree.getHt().gettNodeById("99");
-        tree.mostrarAncestros(nodoarbol);
+        NodoListaHashTable a = tree.mostrarAncestros(nodoarbol, new ListaHashTable()).head;
+        while(a != null){
+            System.out.println(a.nodoarbol.getMote());
+            a = a.next;
+        }
         
         System.setProperty("org.graphstream.ui", "swing");
-        MostrarArboles Arbol = new MostrarArboles();
-        Arbol.mostrar(tree);
+//        MostrarArboles Arbol = new MostrarArboles();
+//        Arbol.mostrar(tree);
         
         MostrarArboles Arbol2 = new MostrarArboles();
         Arbol2.mostrarVisualAncestros(nodoarbol);
