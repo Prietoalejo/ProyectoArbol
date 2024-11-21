@@ -36,7 +36,6 @@ public class Interfaz extends javax.swing.JFrame {
 
         this.pintarImagen(this.Img_1, "src/Img/BannerMedieval.png");
         this.pintarImagen(this.Img_2, "src/Img/herencia.gif");
-        this.pintarImagen(this.Img_3, "src/Img/Unimet.png");
         this.pintarImagen(this.Img_4, "src/Img/Arbol_Linaje.jpg");
     }
 
@@ -49,7 +48,6 @@ public class Interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
         PnlMenu = new javax.swing.JPanel();
         tab1 = new javax.swing.JPanel();
         TexHome = new javax.swing.JLabel();
@@ -60,26 +58,27 @@ public class Interfaz extends javax.swing.JFrame {
         TextoTitulo = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        Img_3 = new javax.swing.JLabel();
+        tab4 = new javax.swing.JPanel();
+        TexAbout1 = new javax.swing.JLabel();
+        tab5 = new javax.swing.JPanel();
+        TexAbout2 = new javax.swing.JLabel();
+        tab6 = new javax.swing.JPanel();
+        TexAbout3 = new javax.swing.JLabel();
         PnlFondo = new javax.swing.JPanel();
         Panel_1 = new javax.swing.JPanel();
+        Cargar_Arbol = new javax.swing.JButton();
         Img_1 = new javax.swing.JLabel();
         Img_2 = new javax.swing.JLabel();
         Panel_2 = new javax.swing.JPanel();
-        Cargar_Arbol = new javax.swing.JButton();
-        Ver_Registro = new javax.swing.JButton();
-        Buscar_nombre = new javax.swing.JButton();
-        Antepasados = new javax.swing.JButton();
-        Título = new javax.swing.JButton();
-        Integrantes = new javax.swing.JButton();
         Img_4 = new javax.swing.JLabel();
         Panel_3 = new javax.swing.JPanel();
+        Panel_4 = new javax.swing.JPanel();
+        Panel_5 = new javax.swing.JPanel();
+        Panel_6 = new javax.swing.JPanel();
         BarraArriba = new javax.swing.JPanel();
         BtnSalida = new javax.swing.JPanel();
         Label_Salida = new javax.swing.JLabel();
         BarraAbajo = new javax.swing.JPanel();
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -135,7 +134,7 @@ public class Interfaz extends javax.swing.JFrame {
         TexService.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
         TexService.setForeground(new java.awt.Color(255, 255, 255));
         TexService.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TexService.setText("Service");
+        TexService.setText("Ver Registro");
 
         javax.swing.GroupLayout tab2Layout = new javax.swing.GroupLayout(tab2);
         tab2.setLayout(tab2Layout);
@@ -144,7 +143,7 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(TexService)
-                .addGap(64, 64, 64))
+                .addGap(44, 44, 44))
         );
         tab2Layout.setVerticalGroup(
             tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +163,7 @@ public class Interfaz extends javax.swing.JFrame {
         TexAbout.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
         TexAbout.setForeground(new java.awt.Color(255, 255, 255));
         TexAbout.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TexAbout.setText("About");
+        TexAbout.setText("Buscar Nombre");
 
         javax.swing.GroupLayout tab3Layout = new javax.swing.GroupLayout(tab3);
         tab3.setLayout(tab3Layout);
@@ -173,7 +172,7 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(TexAbout)
-                .addGap(74, 74, 74))
+                .addGap(34, 34, 34))
         );
         tab3Layout.setVerticalGroup(
             tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,6 +191,93 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Registro de Linajes");
+
+        tab4.setBackground(new java.awt.Color(38, 166, 154));
+        tab4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tab4MouseClicked(evt);
+            }
+        });
+
+        TexAbout1.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
+        TexAbout1.setForeground(new java.awt.Color(255, 255, 255));
+        TexAbout1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TexAbout1.setText("Antepasados");
+
+        javax.swing.GroupLayout tab4Layout = new javax.swing.GroupLayout(tab4);
+        tab4.setLayout(tab4Layout);
+        tab4Layout.setHorizontalGroup(
+            tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TexAbout1)
+                .addGap(46, 46, 46))
+        );
+        tab4Layout.setVerticalGroup(
+            tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TexAbout1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        tab5.setBackground(new java.awt.Color(38, 166, 154));
+        tab5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tab5MouseClicked(evt);
+            }
+        });
+
+        TexAbout2.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
+        TexAbout2.setForeground(new java.awt.Color(255, 255, 255));
+        TexAbout2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TexAbout2.setText("Titulo");
+
+        javax.swing.GroupLayout tab5Layout = new javax.swing.GroupLayout(tab5);
+        tab5.setLayout(tab5Layout);
+        tab5Layout.setHorizontalGroup(
+            tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TexAbout2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
+        );
+        tab5Layout.setVerticalGroup(
+            tab5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TexAbout2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        tab6.setBackground(new java.awt.Color(38, 166, 154));
+        tab6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tab6MouseClicked(evt);
+            }
+        });
+
+        TexAbout3.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
+        TexAbout3.setForeground(new java.awt.Color(255, 255, 255));
+        TexAbout3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TexAbout3.setText("Integrantes");
+
+        javax.swing.GroupLayout tab6Layout = new javax.swing.GroupLayout(tab6);
+        tab6.setLayout(tab6Layout);
+        tab6Layout.setHorizontalGroup(
+            tab6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TexAbout3)
+                .addGap(52, 52, 52))
+        );
+        tab6Layout.setVerticalGroup(
+            tab6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TexAbout3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout PnlMenuLayout = new javax.swing.GroupLayout(PnlMenu);
         PnlMenu.setLayout(PnlMenuLayout);
@@ -214,7 +300,9 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addComponent(Img_3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tab4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tab5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tab6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PnlMenuLayout.setVerticalGroup(
             PnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,35 +319,19 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(tab2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Img_3, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tab4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tab5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tab6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PnlFondo.setBackground(new java.awt.Color(38, 166, 154));
 
         Panel_1.setBackground(new java.awt.Color(255, 255, 255));
         Panel_1.setPreferredSize(new java.awt.Dimension(560, 427));
-
-        javax.swing.GroupLayout Panel_1Layout = new javax.swing.GroupLayout(Panel_1);
-        Panel_1.setLayout(Panel_1Layout);
-        Panel_1Layout.setHorizontalGroup(
-            Panel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Img_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(Panel_1Layout.createSequentialGroup()
-                .addGap(161, 161, 161)
-                .addComponent(Img_2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(181, Short.MAX_VALUE))
-        );
-        Panel_1Layout.setVerticalGroup(
-            Panel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_1Layout.createSequentialGroup()
-                .addComponent(Img_1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addComponent(Img_2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 96, Short.MAX_VALUE))
-        );
-
-        Panel_2.setBackground(new java.awt.Color(255, 255, 255));
 
         Cargar_Arbol.setBackground(new java.awt.Color(38, 166, 154));
         Cargar_Arbol.setFont(new java.awt.Font("Monotype Corsiva", 1, 16)); // NOI18N
@@ -279,111 +351,50 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        Ver_Registro.setBackground(new java.awt.Color(38, 166, 154));
-        Ver_Registro.setFont(new java.awt.Font("Monotype Corsiva", 1, 16)); // NOI18N
-        Ver_Registro.setForeground(new java.awt.Color(255, 255, 255));
-        Ver_Registro.setText("Ver Registro");
-        Ver_Registro.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Ver_RegistroMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Ver_RegistroMouseExited(evt);
-            }
-        });
+        javax.swing.GroupLayout Panel_1Layout = new javax.swing.GroupLayout(Panel_1);
+        Panel_1.setLayout(Panel_1Layout);
+        Panel_1Layout.setHorizontalGroup(
+            Panel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Img_1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(Panel_1Layout.createSequentialGroup()
+                .addGroup(Panel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Panel_1Layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(Img_2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Panel_1Layout.createSequentialGroup()
+                        .addGap(224, 224, 224)
+                        .addComponent(Cargar_Arbol, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        Panel_1Layout.setVerticalGroup(
+            Panel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_1Layout.createSequentialGroup()
+                .addComponent(Img_1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(Img_2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(Cargar_Arbol, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
+        );
 
-        Buscar_nombre.setBackground(new java.awt.Color(38, 166, 154));
-        Buscar_nombre.setFont(new java.awt.Font("Monotype Corsiva", 1, 16)); // NOI18N
-        Buscar_nombre.setForeground(new java.awt.Color(255, 255, 255));
-        Buscar_nombre.setText("Buscar nombre");
-        Buscar_nombre.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Buscar_nombreMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Buscar_nombreMouseExited(evt);
-            }
-        });
-
-        Antepasados.setBackground(new java.awt.Color(38, 166, 154));
-        Antepasados.setFont(new java.awt.Font("Monotype Corsiva", 1, 16)); // NOI18N
-        Antepasados.setForeground(new java.awt.Color(255, 255, 255));
-        Antepasados.setText("Antepasados");
-        Antepasados.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                AntepasadosMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                AntepasadosMouseExited(evt);
-            }
-        });
-
-        Título.setBackground(new java.awt.Color(38, 166, 154));
-        Título.setFont(new java.awt.Font("Monotype Corsiva", 1, 16)); // NOI18N
-        Título.setForeground(new java.awt.Color(255, 255, 255));
-        Título.setText("Título");
-        Título.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                TítuloMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                TítuloMouseExited(evt);
-            }
-        });
-
-        Integrantes.setBackground(new java.awt.Color(38, 166, 154));
-        Integrantes.setFont(new java.awt.Font("Monotype Corsiva", 1, 16)); // NOI18N
-        Integrantes.setForeground(new java.awt.Color(255, 255, 255));
-        Integrantes.setText("Integrantes");
-        Integrantes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                IntegrantesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                IntegrantesMouseExited(evt);
-            }
-        });
+        Panel_2.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout Panel_2Layout = new javax.swing.GroupLayout(Panel_2);
         Panel_2.setLayout(Panel_2Layout);
         Panel_2Layout.setHorizontalGroup(
             Panel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_2Layout.createSequentialGroup()
-                .addGroup(Panel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(Panel_2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Antepasados, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Panel_2Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(Panel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Cargar_Arbol, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Integrantes, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Título, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Buscar_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Ver_Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addContainerGap(262, Short.MAX_VALUE)
                 .addComponent(Img_4, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         Panel_2Layout.setVerticalGroup(
             Panel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_2Layout.createSequentialGroup()
-                .addContainerGap(78, Short.MAX_VALUE)
-                .addComponent(Cargar_Arbol, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(Ver_Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(Buscar_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(Antepasados, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(Título, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(Integrantes, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
             .addGroup(Panel_2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Img_4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Img_4, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -393,11 +404,50 @@ public class Interfaz extends javax.swing.JFrame {
         Panel_3.setLayout(Panel_3Layout);
         Panel_3Layout.setHorizontalGroup(
             Panel_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 573, Short.MAX_VALUE)
+            .addGap(0, 588, Short.MAX_VALUE)
         );
         Panel_3Layout.setVerticalGroup(
             Panel_3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 504, Short.MAX_VALUE)
+            .addGap(0, 520, Short.MAX_VALUE)
+        );
+
+        Panel_4.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout Panel_4Layout = new javax.swing.GroupLayout(Panel_4);
+        Panel_4.setLayout(Panel_4Layout);
+        Panel_4Layout.setHorizontalGroup(
+            Panel_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 588, Short.MAX_VALUE)
+        );
+        Panel_4Layout.setVerticalGroup(
+            Panel_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 520, Short.MAX_VALUE)
+        );
+
+        Panel_5.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout Panel_5Layout = new javax.swing.GroupLayout(Panel_5);
+        Panel_5.setLayout(Panel_5Layout);
+        Panel_5Layout.setHorizontalGroup(
+            Panel_5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 588, Short.MAX_VALUE)
+        );
+        Panel_5Layout.setVerticalGroup(
+            Panel_5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 520, Short.MAX_VALUE)
+        );
+
+        Panel_6.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout Panel_6Layout = new javax.swing.GroupLayout(Panel_6);
+        Panel_6.setLayout(Panel_6Layout);
+        Panel_6Layout.setHorizontalGroup(
+            Panel_6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 588, Short.MAX_VALUE)
+        );
+        Panel_6Layout.setVerticalGroup(
+            Panel_6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 520, Short.MAX_VALUE)
         );
 
         BarraArriba.setBackground(new java.awt.Color(102, 102, 102));
@@ -466,7 +516,7 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(PnlFondoLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(Panel_1, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
             .addComponent(BarraAbajo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(PnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(PnlFondoLayout.createSequentialGroup()
@@ -478,6 +528,21 @@ public class Interfaz extends javax.swing.JFrame {
                     .addGap(21, 21, 21)
                     .addComponent(Panel_3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(21, 21, 21)))
+            .addGroup(PnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PnlFondoLayout.createSequentialGroup()
+                    .addGap(21, 21, 21)
+                    .addComponent(Panel_4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(21, 21, 21)))
+            .addGroup(PnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PnlFondoLayout.createSequentialGroup()
+                    .addGap(21, 21, 21)
+                    .addComponent(Panel_5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(21, 21, 21)))
+            .addGroup(PnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PnlFondoLayout.createSequentialGroup()
+                    .addGap(21, 21, 21)
+                    .addComponent(Panel_6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(21, 21, 21)))
         );
         PnlFondoLayout.setVerticalGroup(
             PnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -485,7 +550,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(BarraArriba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(Panel_1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(BarraAbajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(PnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(PnlFondoLayout.createSequentialGroup()
@@ -496,6 +561,21 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(PnlFondoLayout.createSequentialGroup()
                     .addGap(53, 53, 53)
                     .addComponent(Panel_3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(54, 54, 54)))
+            .addGroup(PnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PnlFondoLayout.createSequentialGroup()
+                    .addGap(53, 53, 53)
+                    .addComponent(Panel_4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(54, 54, 54)))
+            .addGroup(PnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PnlFondoLayout.createSequentialGroup()
+                    .addGap(53, 53, 53)
+                    .addComponent(Panel_5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(54, 54, 54)))
+            .addGroup(PnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PnlFondoLayout.createSequentialGroup()
+                    .addGap(53, 53, 53)
+                    .addComponent(Panel_6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(54, 54, 54)))
         );
 
@@ -521,18 +601,30 @@ public class Interfaz extends javax.swing.JFrame {
         Panel_1.setVisible(true);
         Panel_2.setVisible(false);
         Panel_3.setVisible(false);
+        Panel_4.setVisible(false);
+        Panel_5.setVisible(false);
+        Panel_6.setVisible(false);
         tab1.setBackground(Color.black);
         tab2.setBackground(new Color(38, 166, 154));
         tab3.setBackground(new Color(38, 166, 154));
+        tab4.setBackground(new Color(38, 166, 154));
+        tab5.setBackground(new Color(38, 166, 154));
+        tab6.setBackground(new Color(38, 166, 154));
     }//GEN-LAST:event_tab1MouseClicked
 
     private void tab2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab2MouseClicked
         Panel_1.setVisible(false);
         Panel_2.setVisible(true);
         Panel_3.setVisible(false);
+        Panel_4.setVisible(false);
+        Panel_5.setVisible(false);
+        Panel_6.setVisible(false);
         tab2.setBackground(Color.black);
         tab1.setBackground(new Color(38, 166, 154));
         tab3.setBackground(new Color(38, 166, 154));
+        tab4.setBackground(new Color(38, 166, 154));
+        tab5.setBackground(new Color(38, 166, 154));
+        tab6.setBackground(new Color(38, 166, 154));
 
     }//GEN-LAST:event_tab2MouseClicked
 
@@ -540,9 +632,15 @@ public class Interfaz extends javax.swing.JFrame {
         Panel_1.setVisible(false);
         Panel_2.setVisible(false);
         Panel_3.setVisible(true);
+        Panel_4.setVisible(false);
+        Panel_5.setVisible(false);
+        Panel_6.setVisible(false);
         tab3.setBackground(Color.black);
         tab1.setBackground(new Color(38, 166, 154));
         tab2.setBackground(new Color(38, 166, 154));
+        tab4.setBackground(new Color(38, 166, 154));
+        tab5.setBackground(new Color(38, 166, 154));
+        tab6.setBackground(new Color(38, 166, 154));
     }//GEN-LAST:event_tab3MouseClicked
 
     private void Label_SalidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Label_SalidaMouseClicked
@@ -570,65 +668,50 @@ public class Interfaz extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_PnlMenuMousePressed
 
-    private void Cargar_ArbolMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cargar_ArbolMouseEntered
-        Cargar_Arbol.setBackground(Color.black);
-        Cargar_Arbol.setForeground(Color.white);
-    }//GEN-LAST:event_Cargar_ArbolMouseEntered
+    private void tab4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab4MouseClicked
+        Panel_1.setVisible(false);
+        Panel_2.setVisible(false);
+        Panel_3.setVisible(false);
+        Panel_4.setVisible(true);
+        Panel_5.setVisible(false);
+        Panel_6.setVisible(false);
+        tab4.setBackground(Color.black);
+        tab1.setBackground(new Color(38, 166, 154));
+        tab2.setBackground(new Color(38, 166, 154));
+        tab3.setBackground(new Color(38, 166, 154));
+        tab5.setBackground(new Color(38, 166, 154));
+        tab6.setBackground(new Color(38, 166, 154));
+    }//GEN-LAST:event_tab4MouseClicked
 
-    private void Cargar_ArbolMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cargar_ArbolMouseExited
-        Cargar_Arbol.setBackground(new Color(38, 166, 154));
-        Cargar_Arbol.setForeground(Color.white);
-    }//GEN-LAST:event_Cargar_ArbolMouseExited
+    private void tab5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab5MouseClicked
+        Panel_1.setVisible(false);
+        Panel_2.setVisible(false);
+        Panel_3.setVisible(false);
+        Panel_4.setVisible(false);
+        Panel_5.setVisible(true);
+        Panel_6.setVisible(false);
+        tab5.setBackground(Color.black);
+        tab1.setBackground(new Color(38, 166, 154));
+        tab2.setBackground(new Color(38, 166, 154));
+        tab4.setBackground(new Color(38, 166, 154));
+        tab3.setBackground(new Color(38, 166, 154));
+        tab6.setBackground(new Color(38, 166, 154));
+    }//GEN-LAST:event_tab5MouseClicked
 
-    private void Ver_RegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ver_RegistroMouseEntered
-        Ver_Registro.setBackground(Color.black);
-        Ver_Registro.setForeground(Color.white);
-    }//GEN-LAST:event_Ver_RegistroMouseEntered
-
-    private void Ver_RegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ver_RegistroMouseExited
-        Ver_Registro.setBackground(new Color(38, 166, 154));
-        Ver_Registro.setForeground(Color.white);
-    }//GEN-LAST:event_Ver_RegistroMouseExited
-
-    private void Buscar_nombreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Buscar_nombreMouseEntered
-        Buscar_nombre.setBackground(Color.black);
-        Buscar_nombre.setForeground(Color.white);
-    }//GEN-LAST:event_Buscar_nombreMouseEntered
-
-    private void Buscar_nombreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Buscar_nombreMouseExited
-        Buscar_nombre.setBackground(new Color(38, 166, 154));
-        Buscar_nombre.setForeground(Color.white);
-    }//GEN-LAST:event_Buscar_nombreMouseExited
-
-    private void AntepasadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AntepasadosMouseEntered
-        Antepasados.setBackground(Color.black);
-        Antepasados.setForeground(Color.white);
-    }//GEN-LAST:event_AntepasadosMouseEntered
-
-    private void AntepasadosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AntepasadosMouseExited
-        Antepasados.setBackground(new Color(38, 166, 154));
-        Antepasados.setForeground(Color.white);
-    }//GEN-LAST:event_AntepasadosMouseExited
-
-    private void TítuloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TítuloMouseEntered
-        Título.setBackground(Color.black);
-        Título.setForeground(Color.white);
-    }//GEN-LAST:event_TítuloMouseEntered
-
-    private void TítuloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TítuloMouseExited
-        Título.setBackground(new Color(38, 166, 154));
-        Título.setForeground(Color.white);
-    }//GEN-LAST:event_TítuloMouseExited
-
-    private void IntegrantesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntegrantesMouseEntered
-        Integrantes.setBackground(Color.black);
-        Integrantes.setForeground(Color.white);
-    }//GEN-LAST:event_IntegrantesMouseEntered
-
-    private void IntegrantesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntegrantesMouseExited
-        Integrantes.setBackground(new Color(38, 166, 154));
-        Integrantes.setForeground(Color.white);
-    }//GEN-LAST:event_IntegrantesMouseExited
+    private void tab6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab6MouseClicked
+        Panel_1.setVisible(false);
+        Panel_2.setVisible(false);
+        Panel_3.setVisible(false);
+        Panel_4.setVisible(false);
+        Panel_5.setVisible(false);
+        Panel_6.setVisible(true);
+        tab6.setBackground(Color.black);
+        tab1.setBackground(new Color(38, 166, 154));
+        tab2.setBackground(new Color(38, 166, 154));
+        tab4.setBackground(new Color(38, 166, 154));
+        tab5.setBackground(new Color(38, 166, 154));
+        tab3.setBackground(new Color(38, 166, 154));
+    }//GEN-LAST:event_tab6MouseClicked
 
     private void Cargar_ArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cargar_ArbolActionPerformed
 
@@ -645,7 +728,7 @@ public class Interfaz extends javax.swing.JFrame {
 
                 JsonParser parser = new JsonParser();
                 JsonElement element = parser.parse(contenido);
-                //Tipo de dato Set 
+                //Tipo de dato Set
                 // Itera sobre cada entrada en el conjunto
                 Set<Map.Entry<String, JsonElement>> casas = element.getAsJsonObject().entrySet();
                 // For loop
@@ -692,6 +775,16 @@ public class Interfaz extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_Cargar_ArbolActionPerformed
+
+    private void Cargar_ArbolMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cargar_ArbolMouseExited
+        Cargar_Arbol.setBackground(new Color(38, 166, 154));
+        Cargar_Arbol.setForeground(Color.white);
+    }//GEN-LAST:event_Cargar_ArbolMouseExited
+
+    private void Cargar_ArbolMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cargar_ArbolMouseEntered
+        Cargar_Arbol.setBackground(Color.black);
+        Cargar_Arbol.setForeground(Color.white);
+    }//GEN-LAST:event_Cargar_ArbolMouseEntered
 
     /**
      * @param args the command line arguments
@@ -742,34 +835,36 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Antepasados;
     private javax.swing.JPanel BarraAbajo;
     private javax.swing.JPanel BarraArriba;
     private javax.swing.JPanel BtnSalida;
-    private javax.swing.JButton Buscar_nombre;
     private javax.swing.JButton Cargar_Arbol;
     private javax.swing.JLabel Img_1;
     private javax.swing.JLabel Img_2;
-    private javax.swing.JLabel Img_3;
     private javax.swing.JLabel Img_4;
-    private javax.swing.JButton Integrantes;
     private javax.swing.JLabel Label_Salida;
     private javax.swing.JPanel Panel_1;
     private javax.swing.JPanel Panel_2;
     private javax.swing.JPanel Panel_3;
+    private javax.swing.JPanel Panel_4;
+    private javax.swing.JPanel Panel_5;
+    private javax.swing.JPanel Panel_6;
     private javax.swing.JPanel PnlFondo;
     private javax.swing.JPanel PnlMenu;
     private javax.swing.JLabel TexAbout;
+    private javax.swing.JLabel TexAbout1;
+    private javax.swing.JLabel TexAbout2;
+    private javax.swing.JLabel TexAbout3;
     private javax.swing.JLabel TexHome;
     private javax.swing.JLabel TexService;
     private javax.swing.JLabel TextoTitulo;
-    private javax.swing.JButton Título;
-    private javax.swing.JButton Ver_Registro;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel tab1;
     private javax.swing.JPanel tab2;
     private javax.swing.JPanel tab3;
+    private javax.swing.JPanel tab4;
+    private javax.swing.JPanel tab5;
+    private javax.swing.JPanel tab6;
     // End of variables declaration//GEN-END:variables
 }
