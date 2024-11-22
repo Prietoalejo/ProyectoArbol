@@ -10,7 +10,7 @@ package edd;
  */
 public class HashTable {
 
-    static int hashTableSize = 100;
+    static int hashTableSize = 300;
     static ListaHashTable hashTable[] = new ListaHashTable[hashTableSize];
 
     public HashTable() {
@@ -49,18 +49,30 @@ public class HashTable {
         }
     }
 
+    /*
+    Correcion del metodo GettNodeById 
+    1.- validaciones al acceso
+    2.- Condicion de comparacion
+    */
     public NodoLista gettNodeById(String value) {
         int index = hashFunc(value);
+        // Validar si la tabla hash y la lista en el índice existen
+        if (hashTable[index] == null || hashTable[index].head == null) {
+            System.out.println("Advertencia: No se encontró el índice en la tabla hash para: " + value);
+            return null;
+        }
         NodoListaHashTable aux = hashTable[index].head;
-        while (aux != null & aux.val != value) {
+        
+        while (aux != null) {
+            if(aux.val != null && aux.val.equals(value)){
+                System.out.println("Nodo encontrado: "+ value + "Indice: " + index);
+                return aux.nodoarbol;
+            }
             aux = aux.next;
         }
 
-        if (aux == null) {
-            return null;
-        }
-
-        return aux.nodoarbol;
+        System.out.println("ERROR: no se encontraron nodos para: "+ value);
+        return null;
     }
 
     public void accessByKey(String value) {
