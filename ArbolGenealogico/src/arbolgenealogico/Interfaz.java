@@ -4,14 +4,13 @@
  */
 package arbolgenealogico;
 
-import com.google.gson.JsonArray; //Creo que esta no se puede usar.
+import com.google.gson.JsonArray; 
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.awt.Color;
 import java.awt.Image;
 import java.nio.file.Files;
-import java.util.Map;
-import java.util.Set;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -19,8 +18,8 @@ import javax.swing.JLabel;
 
 /**
  * @author Massimo Gramcko
- * @author
- * @author
+ * @author Alejandro Prietro
+ * @author Edgar Téran
  */
 public class Interfaz extends javax.swing.JFrame {
 
@@ -40,6 +39,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         this.pintarImagen(this.Img_1, "src/Img/BannerMedieval.png");
         this.pintarImagen(this.Img_2, "src/Img/herencia.gif");
+        this.pintarImagen(this.Img_3, "src/Img/Unimet.png");
         this.pintarImagen(this.Img_4, "src/Img/Arbol_Linaje.jpg");
     }
 
@@ -68,6 +68,7 @@ public class Interfaz extends javax.swing.JFrame {
         TexAbout2 = new javax.swing.JLabel();
         tab6 = new javax.swing.JPanel();
         TexAbout3 = new javax.swing.JLabel();
+        Img_3 = new javax.swing.JLabel();
         PnlFondo = new javax.swing.JPanel();
         Panel_1 = new javax.swing.JPanel();
         Cargar_Arbol = new javax.swing.JButton();
@@ -106,7 +107,7 @@ public class Interfaz extends javax.swing.JFrame {
         });
 
         TexHome.setBackground(new java.awt.Color(38, 166, 154));
-        TexHome.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
+        TexHome.setFont(new java.awt.Font("Monotype Corsiva", 1, 20)); // NOI18N
         TexHome.setForeground(new java.awt.Color(255, 255, 255));
         TexHome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TexHome.setText("Home");
@@ -115,10 +116,10 @@ public class Interfaz extends javax.swing.JFrame {
         tab1.setLayout(tab1Layout);
         tab1Layout.setHorizontalGroup(
             tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TexHome)
-                .addGap(73, 73, 73))
+            .addGroup(tab1Layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(TexHome, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tab1Layout.setVerticalGroup(
             tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,7 +136,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        TexService.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
+        TexService.setFont(new java.awt.Font("Monotype Corsiva", 1, 20)); // NOI18N
         TexService.setForeground(new java.awt.Color(255, 255, 255));
         TexService.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TexService.setText("Ver Registro");
@@ -146,7 +147,7 @@ public class Interfaz extends javax.swing.JFrame {
             tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TexService)
+                .addComponent(TexService, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
         );
         tab2Layout.setVerticalGroup(
@@ -164,7 +165,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        TexAbout.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
+        TexAbout.setFont(new java.awt.Font("Monotype Corsiva", 1, 20)); // NOI18N
         TexAbout.setForeground(new java.awt.Color(255, 255, 255));
         TexAbout.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TexAbout.setText("Buscar Nombre");
@@ -175,7 +176,7 @@ public class Interfaz extends javax.swing.JFrame {
             tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TexAbout)
+                .addComponent(TexAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
         tab3Layout.setVerticalGroup(
@@ -203,7 +204,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        TexAbout1.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
+        TexAbout1.setFont(new java.awt.Font("Monotype Corsiva", 1, 20)); // NOI18N
         TexAbout1.setForeground(new java.awt.Color(255, 255, 255));
         TexAbout1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TexAbout1.setText("Antepasados");
@@ -214,8 +215,8 @@ public class Interfaz extends javax.swing.JFrame {
             tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TexAbout1)
-                .addGap(46, 46, 46))
+                .addComponent(TexAbout1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
         tab4Layout.setVerticalGroup(
             tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +233,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        TexAbout2.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
+        TexAbout2.setFont(new java.awt.Font("Monotype Corsiva", 1, 20)); // NOI18N
         TexAbout2.setForeground(new java.awt.Color(255, 255, 255));
         TexAbout2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TexAbout2.setText("Titulo");
@@ -261,7 +262,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        TexAbout3.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
+        TexAbout3.setFont(new java.awt.Font("Monotype Corsiva", 1, 20)); // NOI18N
         TexAbout3.setForeground(new java.awt.Color(255, 255, 255));
         TexAbout3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TexAbout3.setText("Integrantes");
@@ -272,7 +273,7 @@ public class Interfaz extends javax.swing.JFrame {
             tab6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TexAbout3)
+                .addComponent(TexAbout3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
         );
         tab6Layout.setVerticalGroup(
@@ -307,6 +308,7 @@ public class Interfaz extends javax.swing.JFrame {
             .addComponent(tab4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(tab5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(tab6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Img_3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PnlMenuLayout.setVerticalGroup(
             PnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,7 +319,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addGap(60, 60, 60)
+                .addGap(30, 30, 30)
                 .addComponent(tab1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tab2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -329,7 +331,8 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(tab5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tab6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(Img_3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PnlFondo.setBackground(new java.awt.Color(38, 166, 154));
@@ -732,22 +735,22 @@ public class Interfaz extends javax.swing.JFrame {
 
                 JsonParser parser = new JsonParser();
                 JsonElement element = parser.parse(contenido);
-                //Tipo de dato Set
-                // Itera sobre cada entrada en el conjunto
-                Set<Map.Entry<String, JsonElement>> casas = element.getAsJsonObject().entrySet();
-                // For loop
-                for (Map.Entry<String, JsonElement> casa : casas) {
-                    String nombreCasa = casa.getKey();// Obtiene el nombre de la casa
-                    System.out.println(nombreCasa);// Imprime el nombre de la casa
-                    JsonArray miembros = casa.getValue().getAsJsonArray();//// Obtiene los miembros de la casa como un JsonArray
+
+                JsonObject casas = element.getAsJsonObject();
+                //itera la casa del json
+                for (String nombreCasa : casas.keySet()) {
+                    System.out.println(nombreCasa);
+                    JsonArray miembros = casas.getAsJsonArray(nombreCasa);
+
+                    //itera cada miembro de la casa
                     for (JsonElement miembro : miembros) {
-                        //String la clave y el JsonElement es el valor
-                        //Obtiene un conjunto de entradas del objeto JSON de los miembros
-                        Set<Map.Entry<String, JsonElement>> miembroLinajeEntry = miembro.getAsJsonObject().entrySet();
-                        for (Map.Entry<String, JsonElement> miembroLinaje : miembroLinajeEntry) {
-                            String nombreMiembro = miembroLinaje.getKey();
+                        JsonObject miembroLinaje = miembro.getAsJsonObject();
+
+                        //itera en cada miembro del linaje
+                        for (String nombreMiembro : miembroLinaje.keySet()) {
                             System.out.println(nombreMiembro);
-                            JsonArray miembroAtributos = miembroLinaje.getValue().getAsJsonArray();
+                            JsonArray miembroAtributos = miembroLinaje.getAsJsonArray(nombreMiembro);
+
                             for (JsonElement miembroAtributo : miembroAtributos) { // Itera sobre cada atributo del miembro
                                 var suNombre = miembroAtributo.getAsJsonObject().get("Of his name");
                                 var bornTo = miembroAtributo.getAsJsonObject().get("Born to");
@@ -845,6 +848,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton Cargar_Arbol;
     private javax.swing.JLabel Img_1;
     private javax.swing.JLabel Img_2;
+    private javax.swing.JLabel Img_3;
     private javax.swing.JLabel Img_4;
     private javax.swing.JLabel Label_Salida;
     private javax.swing.JPanel Panel_1;
