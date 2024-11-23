@@ -10,7 +10,7 @@ package edd;
  */
 public class HashTable {
 
-    static int hashTableSize = 300;
+    static int hashTableSize = 5000;
     static ListaHashTable hashTable[] = new ListaHashTable[hashTableSize];
 
     public HashTable() {

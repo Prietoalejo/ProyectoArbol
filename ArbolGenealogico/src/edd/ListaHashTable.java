@@ -27,7 +27,7 @@ public class ListaHashTable {
     }
     
     public NodoListaHashTable crearNodo(String value, NodoLista nodoarbol) {
-        NodoListaHashTable nodo 	= new NodoListaHashTable(value,nodoarbol,null);
+        NodoListaHashTable nodo = new NodoListaHashTable(value,nodoarbol,null);
         return nodo;
     }
     
