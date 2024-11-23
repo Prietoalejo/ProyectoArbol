@@ -61,9 +61,10 @@ public class Interfaz extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
 
     private String[] dividirElementos(String texto, String delimitador) {
-        texto = texto.substring(1, texto.length() - 1); // Eliminar corchetes exteriores
-        return texto.split(Pattern.quote(delimitador)); // Usa Pattern.quote para escapar caracteres especiales
-    }
+        texto = texto.replaceAll("[\\[\\]]", "").trim(); // Eliminar corchetes exteriores
+        System.out.println("Texto para dividir: " + texto); // Debug para verificar contenido antes de dividir
+        return texto.split(Pattern.quote(delimitador)); // Dividir con delimitador escapado
+}
 
 
     private String extraerValor(String clave, String texto) {
@@ -88,51 +89,69 @@ public class Interfaz extends javax.swing.JFrame {
         return texto.substring(inicio + 1, fin).trim();
 }
 
-    private void instanciarNodosArbol(String contenido, Tree tree) {
-        try {
-            JsonParser parser = new JsonParser();
-            JsonElement element = parser.parse(contenido);
-            JsonObject casas = element.getAsJsonObject();
+private void instanciarNodosArbol(String contenido, Tree tree) {
+    try {
+        JsonParser parser = new JsonParser();
+        JsonObject casas = parser.parse(contenido).getAsJsonObject();
 
-            for (String nombreCasa : casas.keySet()) {
-                System.out.println("Procesando casa: " + nombreCasa);
-                String miembrosTexto = casas.get(nombreCasa).toString();
+        for (String nombreCasa : casas.keySet()) {
+            System.out.println("Procesando casa: " + nombreCasa);
 
-                String[] miembros = dividirElementos(miembrosTexto, "},{");
-                for (String miembroTexto : miembros) {
-                    String nombreMiembro = extraerClavePrincipal(miembroTexto);
+            // Obtener miembros de la casa
+            JsonArray miembros = casas.getAsJsonArray(nombreCasa);
 
-                    String mote = extraerValor("Known throughout as", miembroTexto);
-                    String heldTitle = extraerValor("Held title", miembroTexto);
-                    String eyeColor = extraerValor("Of eyes", miembroTexto);
-                    String hairColor = extraerValor("Of hair", miembroTexto);
-                    String notes = extraerValor("Notes", miembroTexto);
-                    String fate = extraerValor("Fate", miembroTexto);
+            for (JsonElement miembroElemento : miembros) {
+                JsonObject miembro = miembroElemento.getAsJsonObject();
 
-                    NodoLista nodo = new NodoLista(
-                        normalizarNombre(nombreMiembro),
-                        tree.getKeyCounter(),
-                        mote,
-                        heldTitle,
-                        eyeColor,
-                        hairColor,
-                        notes,
-                        fate
-                    );
+                // Extraer el nombre principal del nodo (clave principal)
+                String nombreMiembro = miembro.keySet().iterator().next();
+                JsonArray atributos = miembro.getAsJsonArray(nombreMiembro);
 
-                    if (tree.isEmpty()) {
-                        tree.setRoot(nodo);
-                    }
+                // Crear el nodo principal
+                String mote = getValorDeAtributo(atributos, "Known throughout as");
+                String heldTitle = getValorDeAtributo(atributos, "Held title");
+                String eyeColor = getValorDeAtributo(atributos, "Of eyes");
+                String hairColor = getValorDeAtributo(atributos, "Of hair");
+                String notes = getValorDeAtributo(atributos, "Notes");
+                String fate = getValorDeAtributo(atributos, "Fate");
 
-                    System.out.println("Nodo creado: " + nodo.getNombre());
-                    tree.getHt().insertWithValue(nodo);
-                    tree.setKeyCounter(tree.getKeyCounter() + 1);
+                NodoLista nodo = new NodoLista(
+                    normalizarNombre(nombreMiembro),
+                    tree.getKeyCounter(),
+                    mote,
+                    heldTitle,
+                    eyeColor,
+                    hairColor,
+                    notes,
+                    fate
+                );
+
+                if (tree.isEmpty()) {
+                    tree.setRoot(nodo);
                 }
+
+                tree.getHt().insertWithValue(nodo);
+                tree.setKeyCounter(tree.getKeyCounter() + 1);
+
+                System.out.println("Nodo creado: " + nodo.getNombre() + " | Título: " + heldTitle);
             }
-        } catch (Exception e) {
-            System.out.println("Error al instanciar nodos en el árbol: " + e.getMessage());
+        }
+    } catch (Exception e) {
+        System.out.println("Error al instanciar nodos en el árbol: " + e.getMessage());
+    }
+}
+
+    private String getValorDeAtributo(JsonArray atributos, String clave) {
+    for (JsonElement atributoElemento : atributos) {
+        JsonObject atributo = atributoElemento.getAsJsonObject();
+        if (atributo.has(clave)) {
+            return atributo.get(clave).getAsString();
         }
     }
+    return null; // Si no se encuentra la clave, devolver null
+}
+
+
 
     private void instanciarTablaHash(String contenido, Tree tree) {
     try {
@@ -1039,7 +1058,6 @@ public class Interfaz extends javax.swing.JFrame {
 
                 // Procesar nodos e instanciar árbol y tabla hash
                 instanciarNodosArbol(contenido, tree);
-                instanciarTablaHash(contenido, tree);
 
                 JOptionPane.showMessageDialog(this, "Archivo cargado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception e) {
