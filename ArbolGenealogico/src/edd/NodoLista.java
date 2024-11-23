@@ -21,6 +21,8 @@ public class NodoLista {
     private String notes;
     private String fate; 
 
+    
+
     public String getHeldTitle() {
         return heldTitle;
     }
@@ -63,11 +65,17 @@ public class NodoLista {
         this.fate = fate;
     }
     
-    public NodoLista(String element, int key , String mote) {
+    public NodoLista(String element, int key , String mote, String heldTitle, String eyeColor, String hairColor, String notes, String fate) {
         this.nombre = element;
         this.key = key;
         this.sons = new NodoLista[0];
         this.mote = mote;
+        this.heldTitle = heldTitle;
+        this.eyeColor = eyeColor;
+        this.hairColor = hairColor;
+        this.notes = notes;
+        this.fate = fate;
+        
     }
 
      public String getMote() {

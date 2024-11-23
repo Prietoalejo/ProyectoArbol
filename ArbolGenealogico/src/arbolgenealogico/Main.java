@@ -20,17 +20,15 @@ public class Main {
         Tree tree = new Tree();
         NodoLista nodoarbol;
         
-        tree.insert("8", -1, -1, null,"mote 8");//0
-        tree.insert("10", 0, -1,tree.getRoot(),"mote 10");
-        tree.insert("22", 0,  -1,tree.getRoot(),"mote 22");//2
-        tree.insert("5", 0,  -1,tree.getRoot(),"mote 5");//3
-        tree.insert("80", 0, -1, tree.getRoot(),"mote 80");
-        tree.insert("15", 0, -1, tree.getRoot(),"mote 15");
-        tree.insert("3", 0, -1, tree.getRoot(),"mote 3");//
-        tree.insert("1", 3,2, tree.getRoot(),"mote 1"); //9
-        tree.insert("7", 3,5, tree.getRoot(),"mote 7");//16
-        tree.insert("9", 6,2, tree.getRoot(),"mote 9");//9
-        tree.insert("99", 9,16, tree.getRoot(),"mote 99");
+        tree.insert("Jhon Snow", -1, -1, null,"Jhon Snow", "Casa", "Verdes", "Marron", "lo que sea", "Estudiando fisica");//0
+        tree.insert("Carlos", 0, -1,tree.getRoot(),"Carlos","Casa", "Verdes", "Marron", "lo que sea", "Estudiando fisica");
+        tree.insert("Juan", 0,  -1,tree.getRoot(),"Juan", "Casa", "Verdes", "Marron", "lo que sea", "Estudiando fisica");//2
+        tree.insert("Maria", 0,  -1,tree.getRoot(),"Maria", "Casa", "Verdes", "Marron", "lo que sea", "Estudiando fisica");//3
+        tree.insert("Fernando", 0, -1, tree.getRoot(),"Fernando", "Casa", "Verdes", "Marron", "lo que sea", "Estudiando fisica");
+        tree.insert("Marcos", 1,  3 ,tree.getRoot(),"Marcos", "Casa", "Verdes", "Marron", "lo que sea", "Estudiando fisica");
+        tree.insert("Daniela", 1, 2  ,tree.getRoot(),"Daniela", "Casa", "Verdes", "Marron", "lo que sea", "Estudiando fisica");
+        //tree.insert("", -1,  -1 ,tree.getRoot(),"Daniela", "Casa", "Verdes", "Marron", "lo que sea", "Estudiando fisica");
+        
         
         /*FUNCIONES PARA MOSTRAR EL ARBOL*/
         System.out.println("ARBOL");
@@ -84,12 +82,12 @@ public class Main {
        }
         
         System.out.println("ARBOLES HT DESCNEDIENTES");
-        nodoarbol = tree.getHt().gettNodeById("5");
+        nodoarbol = tree.getHt().gettNodeById("Jhon Snow");
         tree.mostrarDescendientes(nodoarbol);
         
 
         System.out.println("ARBOLES HT ANCESTROS");
-        nodoarbol = tree.getHt().gettNodeById("99");
+        nodoarbol = tree.getHt().gettNodeById("Marcos");
         NodoListaHashTable a = tree.mostrarAncestros(nodoarbol, new ListaHashTable()).head;
         while(a != null){
             System.out.println(a.nodoarbol.getMote());
@@ -97,11 +95,11 @@ public class Main {
         }
         
         System.setProperty("org.graphstream.ui", "swing");
-//        MostrarArboles Arbol = new MostrarArboles();
-//        Arbol.mostrar(tree);
+       MostrarArboles Arbol = new MostrarArboles();
+       Arbol.mostrar(tree);
         
-        MostrarArboles Arbol2 = new MostrarArboles();
-        Arbol2.mostrarVisualAncestros(nodoarbol);
+        //MostrarArboles Arbol2 = new MostrarArboles();
+        //Arbol2.mostrarVisualAncestros(nodoarbol);
         
     }
     

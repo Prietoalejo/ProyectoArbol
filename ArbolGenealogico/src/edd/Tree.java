@@ -48,9 +48,9 @@ public class Tree {
         return getRoot() == null;
     }
 
-    public NodoLista insert(String element, int fatherKey, int motherKey, NodoLista pointer, String mote) {
+    public NodoLista insert(String element, int fatherKey, int motherKey, NodoLista pointer, String mote, String heldTitle, String eyeColor, String hairColor, String notes, String fate) {
         //fk 5 pointer 5 element 21
-        NodoLista nodo = new NodoLista(element, getKeyCounter(), mote);
+        NodoLista nodo = new NodoLista(element, getKeyCounter(), mote, heldTitle, eyeColor, hairColor, notes, fate);
         if (isEmpty()) {
             setRoot(nodo);
         } else {
@@ -59,12 +59,13 @@ public class Tree {
                 nodo.setParent(pointer);
                 NodoLista motherNode = findNodeById(motherKey, root);
                 if (motherNode != null) {
+                    increaseSons(motherNode, nodo);
                     nodo.setMother(motherNode);
                 }
 
             } else {
                 for (NodoLista son : pointer.getSons()) {
-                    insert(element, fatherKey, motherKey, son, mote);
+                    insert(element, fatherKey, motherKey, son, mote, heldTitle, eyeColor, hairColor, notes, fate);
                 }
             }
         }

@@ -92,7 +92,7 @@ public class Interfaz extends javax.swing.JFrame {
         String madre = extraerValor("Born to", miembro); 
         String[] hijos = extraerLista("Father to", miembro);
 
-        NodoLista nodo = new NodoLista(nombre, tree.getKeyCounter(), mote);
+        NodoLista nodo = new NodoLista(nombre, tree.getKeyCounter(), mote, titulo, colorOjos, colorCabello, notas, destino);
         nodo.setHeldTitle(titulo);
         nodo.setEyeColor(colorOjos);
         nodo.setHairColor(colorCabello);
@@ -158,7 +158,7 @@ public class Interfaz extends javax.swing.JFrame {
                             (heldTitle != null ? " [" + heldTitle + "]" : ""));
 
                         // Crear e insertar nodo
-                        NodoLista nodo = new NodoLista(claveUnica, tree.getKeyCounter(), mote);
+                        NodoLista nodo = new NodoLista(claveUnica, tree.getKeyCounter(), mote, heldTitle, "marrones", "negro", "Deseo nota prueba", "Muerto");
                         tree.getHt().insertWithValue(nodo);
 
                         // Imprime el nodo insertado y su índice

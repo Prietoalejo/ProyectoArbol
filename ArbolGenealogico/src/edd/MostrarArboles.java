@@ -44,7 +44,10 @@ public class MostrarArboles {
     }
 
     public void CreacionNodos(NodoLista nodo) {
+        if(graph.getNode(nodo.getMote()) == null){
         AgregarParada(nodo.getMote());
+        }
+        // AgregarParada(nodo.getMote());
 
         for (NodoLista son : nodo.getSons()) {
             CreacionNodos(son);
@@ -52,10 +55,13 @@ public class MostrarArboles {
     }
 
     public void CreacionConexiones(NodoLista Nodo) {
+        if (Nodo == null){
+            return;
+        }
         for (NodoLista son : Nodo.getSons()) {
             AgregarConexion(Nodo.getMote(), son.getMote());
             CreacionConexiones(son);
-
+            
         }
     }
 
@@ -63,16 +69,37 @@ public class MostrarArboles {
         if (nodo == null) {
             return;
         }
+        
+        
+        
         if(graph.getNode(nodo.getMote()) == null){
         AgregarParada(nodo.getMote());
         }
        mostrarAncestros(nodo.getParent());
         mostrarAncestros(nodo.getMother());
     }
+    
+    public void mostrarAncestrosConexiones(NodoLista nodo) {
+        if (nodo == null) {
+            return;
+        }
+        if (nodo.getParent()!= null){
+       AgregarConexion(nodo.getMote(), nodo.getParent().getMote());
+        }
+        
+       if (nodo.getMother()!= null) {
+           AgregarConexion(nodo.getMote(),nodo.getMother().getMote());
+       }
+        mostrarAncestrosConexiones(nodo.getParent());
+       mostrarAncestrosConexiones(nodo.getMother());
+       
+       
+    }
+    
 
     public void mostrarVisualAncestros(NodoLista nodo) {
         mostrarAncestros(nodo);
-        CreacionConexiones (nodo);
+        mostrarAncestrosConexiones (nodo);
         graph.display();
 
     }
