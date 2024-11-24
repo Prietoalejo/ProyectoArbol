@@ -67,16 +67,36 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     private String extraerValor(String clave, String texto) {
-        int inicio = texto.indexOf("\"" + clave + "\":");
-        if (inicio == -1) return null; // Clave no encontrada
+        try {
+            int inicio = texto.indexOf("\"" + clave + "\":");
+            if (inicio == -1) return null;
 
-        inicio += clave.length() + 3; // Avanzar más allá de la clave y los dos puntos
-        int fin = texto.indexOf(",", inicio);
-        if (fin == -1) fin = texto.indexOf("}", inicio); // Usar cierre de objeto si no hay coma
-        if (fin == -1 || inicio >= fin) return null; // Validar índices antes de extraer
+            inicio += clave.length() + 3;
+            char delimitadorInicio = texto.charAt(inicio);
+            int fin;
 
-        return texto.substring(inicio, fin).replace("\"", "").trim(); //Devuel ve valor, sin comillas
+            if (delimitadorInicio == '\"') {
+                fin = texto.indexOf("\"", inicio + 1);
+            } else if (delimitadorInicio == '[') {
+                fin = texto.indexOf("]", inicio) + 1;
+            } else {
+                fin = texto.indexOf(",", inicio);
+                if (fin == -1) fin = texto.indexOf("}", inicio);
+            }
+
+            if (fin == -1 || inicio >= fin) return null;
+            String valor = texto.substring(inicio, fin).replace("\"", "").trim();
+
+            return valor.isEmpty() || valor.equals("null") ? null : valor;
+        } catch (Exception e) {
+            System.out.println("Error extrayendo valor para clave: " + clave + " -> " + e.getMessage());
+            return null;
+        }
     }
+
+
+
+
 
     private String[] dividirTextoLista(String texto) {
     texto = texto.replaceAll("\\[|\\]", ""); // Eliminar corchetes
@@ -254,30 +274,42 @@ public class Interfaz extends javax.swing.JFrame {
 }
 
     public static String normalizarNombre(String nombre) {
-        //Limpiamos los nombre para evitar cualquier problema en el programa
-        return nombre == null ? null : nombre.toLowerCase().trim();
+        return nombre == null ? null : nombre.trim().toLowerCase().replaceAll("[^a-z0-9 ]", "").replaceAll("\\s+", " ");
     }
 
 
-    private void procesarRelacion(Tree tree, String padre, String hijo) {
-        /*
-        Creamos la relacion entre ambos nodos padre e hijo validando de que existna los nodos
-        */
-    if (padre == null || hijo == null) {
-        System.out.println("Advertencia: Relación inválida (padre o hijo es nulo)");
-        return;
+    private void procesarRelacion(Tree tree, String padre, String hijosTexto) {
+        if (padre == null || hijosTexto == null) {
+            System.out.println("Advertencia: Relación inválida (padre o hijo es nulo)");
+            return;
+        }
+
+        // Normalizar el nombre del padre
+        padre = normalizarNombre(padre);
+        NodoLista nodoPadre = tree.getHt().gettNodeById(padre);
+
+        if (nodoPadre == null) {
+            System.out.println("Advertencia: Nodo padre no encontrado: " + padre);
+            return;
+        }
+
+        // Dividir los hijos y procesarlos individualmente
+        hijosTexto = hijosTexto.replaceAll("\\[|\\]", ""); // Eliminar corchetes si existen
+        String[] hijos = hijosTexto.split(",");
+
+        for (String hijo : hijos) {
+            hijo = normalizarNombre(hijo.trim());
+            NodoLista nodoHijo = tree.getHt().gettNodeById(hijo);
+
+            if (nodoHijo != null) {
+                tree.increaseSons(nodoPadre, nodoHijo);
+                System.out.println("Relación padre-hijo creada: " + padre + " -> " + hijo);
+            } else {
+                System.out.println("Advertencia: Nodo hijo no encontrado: " + hijo);
+            }
+        }
     }
 
-    NodoLista nodoPadre = tree.getHt().gettNodeById(normalizarNombre(padre));
-    NodoLista nodoHijo = tree.getHt().gettNodeById(normalizarNombre(hijo));
-
-    if (nodoPadre != null && nodoHijo != null) {
-        tree.increaseSons(nodoPadre, nodoHijo);
-        System.out.println("Relación padre-hijo creada: " + padre + " -> " + hijo);
-    } else {
-        System.out.println("Advertencia: Nodo padre o hijo no encontrado: " + padre + " -> " + hijo);
-    }
-}
 
 
 

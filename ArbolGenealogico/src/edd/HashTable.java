@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package edd;
-
 /**
  *
  * @author Edgar
@@ -30,8 +29,11 @@ public class HashTable {
 
     public void insertWithValue(NodoLista nodoarbol) {
         int index = hashFunc(nodoarbol.getNombre());
+        String nombreNormalizado = normalizarNombre(nodoarbol.getNombre());
+        System.out.println("Insertando nodo: " + nombreNormalizado + " en índice: " + index);
         hashTable[index].insertar(nodoarbol);
     }
+
 
     public void show() {
         for (int i = 0; i < hashTableSize; i++) {
@@ -56,6 +58,7 @@ public class HashTable {
     */
     public NodoLista gettNodeById(String value) {
         int index = hashFunc(value);
+        System.out.println("Buscando Nodo:" + value + "En indice " + index);
         // Validar si la tabla hash y la lista en el índice existen
         if (hashTable[index] == null || hashTable[index].head == null) {
             System.out.println("Advertencia: No se encontró el índice en la tabla hash para: " + value);
@@ -137,4 +140,20 @@ public class HashTable {
         }
         return nueva_lista; //Retorna la lista con los nodos 
     }
+    public static String normalizarNombre(String nombre) {
+    if (nombre == null) {
+        return null;
+    }
+    // Convertir a minúsculas
+    String nombreNormalizado = nombre.toLowerCase();
+
+    // Eliminar caracteres especiales no alfanuméricos
+    nombreNormalizado = nombreNormalizado.replaceAll("[^a-z0-9 ]", "");
+
+    // Eliminar espacios adicionales
+    nombreNormalizado = nombreNormalizado.trim().replaceAll(" +", " ");
+
+    return nombreNormalizado;
+}
+
 }
