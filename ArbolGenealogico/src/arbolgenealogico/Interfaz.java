@@ -5,11 +5,14 @@
 package arbolgenealogico;
 import javax.swing.JOptionPane;
 import edd.Tree;
+import edd.Metodos.*;
 import edd.NodoLista;
 import com.google.gson.JsonArray; 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import edd.HashTable;
+import edd.Metodos;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
@@ -27,7 +30,8 @@ import javax.swing.JLabel;
  * @author Edgar Téran
  */
 public class Interfaz extends javax.swing.JFrame {
-    
+    private HashTable hash;
+    private Metodos metodos;
     private Tree tree; //Arbol para el programa
     int xMouse, yMouse;
     private ImageIcon imagen;
@@ -43,6 +47,8 @@ public class Interfaz extends javax.swing.JFrame {
         Panel_6.setVisible(false);
         this.setLocationRelativeTo(this);
         tree = new Tree();
+        hash = new HashTable();
+        metodos = new Metodos(hash);
 
         this.pintarImagen(this.Img_1, "src/Img/BannerMedieval.png");
         this.pintarImagen(this.Img_2, "src/Img/herencia.gif");
@@ -753,6 +759,11 @@ public class Interfaz extends javax.swing.JFrame {
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -812,6 +823,17 @@ public class Interfaz extends javax.swing.JFrame {
         jComboBox2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jComboBox2.setForeground(new java.awt.Color(255, 255, 255));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -1123,6 +1145,7 @@ public class Interfaz extends javax.swing.JFrame {
         tab4.setBackground(new Color(38, 166, 154));
         tab3.setBackground(new Color(38, 166, 154));
         tab6.setBackground(new Color(38, 166, 154));
+       
     }//GEN-LAST:event_tab5MouseClicked
 
     private void tab6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab6MouseClicked
@@ -1189,6 +1212,83 @@ public class Interfaz extends javax.swing.JFrame {
         Cargar_Arbol.setBackground(Color.black);
         Cargar_Arbol.setForeground(Color.white);
     }//GEN-LAST:event_Cargar_ArbolMouseEntered
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+                                            
+    // Verificar si la estructura de datos y métodos están inicializados
+    if (this.metodos == null || this.hash == null || this.hash.size() == 0) {
+        JOptionPane.showMessageDialog(this, "Los datos no se han cargado o la estructura está vacía. Por favor, cargue un archivo primero.", "Error", JOptionPane.ERROR_MESSAGE);
+        jTextField1.setText(""); // Limpiar el campo de texto
+        jTextField1.requestFocus(); // Enfocar el campo de texto
+        return;
+    }
+
+    String titulo = jTextField1.getText().trim();
+
+    // Validar que no esté vacío
+    if (titulo.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Por favor ingrese un título válido.", "Error", JOptionPane.ERROR_MESSAGE);
+        jTextField1.setText(""); // Limpiar el campo de texto
+        jTextField1.requestFocus(); // Enfocar el campo de texto
+        return;
+    }
+
+    // Validar que solo contenga letras y espacios
+    if (!titulo.matches("^[a-zA-Z\\s]+$")) {
+        JOptionPane.showMessageDialog(this, "El título solo puede contener letras y espacios. No se permiten números ni caracteres especiales.", "Error", JOptionPane.ERROR_MESSAGE);
+        jTextField1.setText(""); // Limpiar el campo de texto
+        jTextField1.requestFocus(); // Enfocar el campo de texto
+        return;
+    }
+
+    // Realizar búsqueda por título
+    NodoLista[] resultados = metodos.busquedaPorTitulo(titulo);
+
+    if (resultados == null) {
+        JOptionPane.showMessageDialog(this, "No se encontraron registros con ese título. Verifique que la estructura contenga datos almacenados.", "Sin resultados", JOptionPane.INFORMATION_MESSAGE);
+    } else if (resultados.length == 0) {
+        JOptionPane.showMessageDialog(this, "No se encontraron registros con ese título. Intente con otro término.", "Sin resultados", JOptionPane.INFORMATION_MESSAGE);
+    } else {
+        jComboBox2.removeAllItems(); // Limpiar el combo box
+        for (NodoLista nodo : resultados) {
+            if (nodo != null) {
+                jComboBox2.addItem(nodo.toString()); // Agregar cada resultado al combo box
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Resultados encontrados: " + resultados.length, "Éxito", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    // Limpiar el campo de texto después de procesar
+    jTextField1.setText("");
+    jTextField1.requestFocus(); // Enfocar el campo de texto
+
+
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    // Verificar si hay una selección válida
+    String seleccion = (String) jComboBox2.getSelectedItem();
+    if (seleccion != null) {
+        // Verificar si la instancia de métodos está inicializada
+        if (this.metodos == null) {
+            JOptionPane.showMessageDialog(this, "Los datos no están cargados. Por favor, cargue un archivo primero.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Obtener detalles usando el método verRegistro
+        String detalles = this.metodos.verRegistro(seleccion);
+        if (detalles != null && !detalles.isEmpty()) {
+            jTextArea2.setText(detalles);
+        } else {
+            jTextArea2.setText("No se encontró información para la selección.");
+        }
+    }
+
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     /**
      * @param args the command line arguments

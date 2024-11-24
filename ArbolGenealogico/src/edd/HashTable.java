@@ -155,5 +155,13 @@ public class HashTable {
 
     return nombreNormalizado;
 }
+    //Metodo para validaciones de tamaño
+    public int size() {
+        int totalSize = 0;
+        for (ListaHashTable lista : hashTable) {
+            totalSize += lista.size; // Asumiendo que ListaHashTable tiene una variable `size`.
+        }
+        return totalSize;
+    }
 
 }
