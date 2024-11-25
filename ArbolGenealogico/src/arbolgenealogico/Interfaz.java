@@ -12,6 +12,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import edd.HashTable;
 import edd.Metodos;
+import edd.MostrarArboles;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
@@ -143,75 +144,34 @@ public class Interfaz extends javax.swing.JFrame {
 
 
     private void instanciarNodosArbol(String contenido, Tree tree) {
-        try {
-            JsonParser parser = new JsonParser();
-            JsonObject casas = parser.parse(contenido).getAsJsonObject(); // Convierte el contenido en un objeto JSON
+    try {
+        JsonParser parser = new JsonParser();
+        JsonObject casas = parser.parse(contenido).getAsJsonObject();
 
-            for (String nombreCasa : casas.keySet()) {
-                System.out.println("Procesando casa: " + nombreCasa);
+        for (String nombreCasa : casas.keySet()) {
+            JsonElement miembrosElemento = casas.get(nombreCasa);
+            for (JsonElement miembroElemento : miembrosElemento.getAsJsonArray()) {
+                JsonObject miembro = miembroElemento.getAsJsonObject();
+                for (String nombreMiembro : miembro.keySet()) {
+                    JsonElement atributosElemento = miembro.get(nombreMiembro);
+                    String mote = obtenerValorDeAtributos(atributosElemento, "Known throughout as");
+                    String heldTitle = obtenerValorDeAtributos(atributosElemento, "Held title");
+                    String eyeColor = obtenerValorDeAtributos(atributosElemento, "Of eyes");
+                    String hairColor = obtenerValorDeAtributos(atributosElemento, "Of hair");
+                    String notes = obtenerValorDeAtributos(atributosElemento, "Notes");
+                    String fate = obtenerValorDeAtributos(atributosElemento, "Fate");
 
-                // Obtener miembros de la casa
-                JsonElement miembrosElemento = casas.get(nombreCasa);
-                if (!miembrosElemento.isJsonArray()) {
-                    System.out.println("Error: Se esperaba un array para los miembros de la casa " + nombreCasa);
-                    continue;
-                }
-
-                for (JsonElement miembroElemento : miembrosElemento.getAsJsonArray()) {
-                    if (!miembroElemento.isJsonObject()) {
-                        System.out.println("Error: Se esperaba un objeto JSON para el miembro.");
-                        continue;
-                    }
-
-                    JsonObject miembro = miembroElemento.getAsJsonObject();
-                    for (String nombreMiembro : miembro.keySet()) {
-                        System.out.println("Procesando miembro: " + nombreMiembro);
-
-                        JsonElement atributosElemento = miembro.get(nombreMiembro);
-                        if (!atributosElemento.isJsonArray()) {
-                            System.out.println("Error: Se esperaba un array para los atributos de " + nombreMiembro);
-                            continue;
-                        }
-
-                        String mote = obtenerValorDeAtributos(atributosElemento, "Known throughout as");
-                        String heldTitle = obtenerValorDeAtributos(atributosElemento, "Held title");
-                        String eyeColor = obtenerValorDeAtributos(atributosElemento, "Of eyes");
-                        String hairColor = obtenerValorDeAtributos(atributosElemento, "Of hair");
-                        String notes = obtenerValorDeAtributos(atributosElemento, "Notes");
-                        String fate = obtenerValorDeAtributos(atributosElemento, "Fate");
-
-                        // Procesar "Father to" como una lista de hijos en formato texto
-                        String fatherTo = obtenerValorDeAtributos(atributosElemento, "Father to");
-
-                        // Crear el nodo
-                        NodoLista nodo = new NodoLista(
-                            normalizarNombre(nombreMiembro),
-                            tree.getKeyCounter(),
-                            mote,
-                            heldTitle,
-                            eyeColor,
-                            hairColor,
-                            notes,
-                            fate
-                        );
-
-                        // Insertar nodo en árbol y tabla hash
-                        if (tree.isEmpty()) {
-                            tree.setRoot(nodo);
-                        }
-
-                        tree.getHt().insertWithValue(nodo);
-                        tree.setKeyCounter(tree.getKeyCounter() + 1);
-
-                        System.out.println("Nodo creado: " + nodo.getNombre() + " | Título: " + heldTitle);
-                    }
+                    // Crear el nodo
+                    NodoLista nodo = new NodoLista(nombreMiembro, tree.getKeyCounter(), mote, heldTitle, eyeColor, hairColor, notes, fate);
+                    tree.getHt().insertWithValue(nodo);
+                    tree.setKeyCounter(tree.getKeyCounter() + 1);
                 }
             }
-        } catch (Exception e) {
-            System.out.println("Error al instanciar nodos en el árbol: " + e.getMessage());
-            e.printStackTrace();
         }
+    } catch (Exception e) {
+        System.out.println("Error al instanciar nodos en el árbol: " + e.getMessage());
     }
+}
 
 
 
@@ -290,58 +250,35 @@ public class Interfaz extends javax.swing.JFrame {
 
 
 private void instanciarRelacionesTablaHash(JsonObject casas, Tree tree) {
-    try {
-        for (String nombreCasa : casas.keySet()) {
-            System.out.println("Procesando relaciones para la casa: " + nombreCasa);
-
-            JsonElement miembrosElement = casas.get(nombreCasa);
-            String miembrosTexto = miembrosElement.toString();
-            String[] miembros = dividirElementos(miembrosTexto, "},{");
-
-            for (String miembroTexto : miembros) {
-                String nombreMiembro = extraerClavePrincipal(miembroTexto);
-                String padre = extraerValor("Born to", miembroTexto);
-                String hijosTexto = extraerValor("Father to", miembroTexto);
-
+    for (String nombreCasa : casas.keySet()) {
+        JsonElement miembrosElement = casas.get(nombreCasa);
+        for (JsonElement miembroElemento : miembrosElement.getAsJsonArray()) {
+            JsonObject miembro = miembroElemento.getAsJsonObject();
+            for (String nombreMiembro : miembro.keySet()) {
                 NodoLista nodo = tree.getHt().gettNodeById(normalizarNombre(nombreMiembro));
-                if (nodo == null) {
-                    System.out.println("Advertencia: Nodo no encontrado para: " + nombreMiembro);
-                    continue;
-                }
-
-                // Procesar relación con el padre
-                if (padre != null && !padre.equals("Unknown")) {
-                    String padreNormalizado = normalizarNombre(padre);
-                    NodoLista nodoPadre = tree.getHt().gettNodeById(padreNormalizado);
-
-                    if (nodoPadre != null) {
-                        nodo.setParent(nodoPadre);
-                        tree.increaseSons(nodoPadre, nodo);
-                        System.out.println("Relación padre-hijo: " + padre + " -> " + nodo.getNombre());
-                    } else {
-                        System.out.println("Advertencia: Nodo padre no encontrado para: " + padre);
+                if (nodo != null) {
+                    String padre = obtenerValorDeAtributos(miembro.get(nombreMiembro), "Born to");
+                    if (padre != null && !padre.equals("[Unknown]")) {
+                        NodoLista nodoPadre = tree.getHt().gettNodeById(normalizarNombre(padre));
+                        if (nodoPadre != null) {
+                            nodo.setParent(nodoPadre);
+                            tree.increaseSons(nodoPadre, nodo);
+                        }
                     }
-                }
 
-                // Procesar relación con los hijos
-                if (hijosTexto != null) {
-                    String[] hijos = dividirElementos(hijosTexto, ",");
-                    for (String hijo : hijos) {
-                        String hijoNormalizado = normalizarNombre(hijo.trim());
-                        NodoLista nodoHijo = tree.getHt().gettNodeById(hijoNormalizado);
-
-                        if (nodoHijo != null) {
-                            tree.increaseSons(nodo, nodoHijo);
-                            System.out.println("Relación hijo-padre: " + nodo.getNombre() + " -> " + hijo);
-                        } else {
-                            System.out.println("Advertencia: Nodo hijo no encontrado para: " + hijo);
+                    String hijosTexto = obtenerValorDeAtributos(miembro.get(nombreMiembro), "Father to");
+                    if (hijosTexto != null) {
+                        String[] hijos = dividirElementos(hijosTexto, ",");
+                        for (String hijo : hijos) {
+                            NodoLista nodoHijo = tree.getHt().gettNodeById(normalizarNombre(hijo.trim()));
+                            if (nodoHijo != null) {
+                                tree.increaseSons(nodo, nodoHijo);
+                            }
                         }
                     }
                 }
             }
         }
-    } catch (Exception e) {
-        System.out.println("Error al instanciar relaciones en la tabla hash: " + e.getMessage());
     }
 }
 
@@ -1309,6 +1246,12 @@ private void instanciarRelacionesTablaHash(JsonObject casas, Tree tree) {
                 instanciarRelacionesTablaHash(casas, tree);
 
                 JOptionPane.showMessageDialog(this, "Archivo cargado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+                // Mostrar el grafo después de cargar el árbol
+                System.setProperty("org.graphstream.ui", "swing");
+                MostrarArboles Arbol = new MostrarArboles();
+                Arbol.mostrar(tree); // Asegúrate de que el método mostrar esté implementado correctamente en MostrarArboles
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Error al procesar el archivo: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
